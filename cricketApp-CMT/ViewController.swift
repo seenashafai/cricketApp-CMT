@@ -13,7 +13,8 @@ import FirebaseAuth
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
-
+    var ref: DatabaseReference!
+    
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -66,7 +67,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
