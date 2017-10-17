@@ -10,7 +10,11 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBOutlet weak var inputEmail: UITextField!
+    
+    @IBOutlet weak var inputPassword: UITextField!
     
     var ref: DatabaseReference!
     
@@ -18,7 +22,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         ref = Database.database().reference()
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+        return true
+    }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
