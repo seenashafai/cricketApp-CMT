@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 if user != nil
                 {
                     // Sign in Successful
-                    print("SUCCESS")
+                    print("Sign in successful")
                     self.performSegue(withIdentifier: "segue", sender: self)
                 }
                 else
@@ -44,13 +44,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
-            else
-            {
-                Auth.auth().createUser(withEmail: self.inputEmail.text!, password: self.inputPassword.text!) { (user, error) in
+    }
+   
+    @IBAction func signupNow(_ sender: UIButton)
+    {
+        if inputEmail.text != "" || inputPassword.text != ""
+        {
+            Auth.auth().createUser(withEmail: self.inputEmail.text!, password: self.inputPassword.text!) { (user, error) in
                     if user != nil
                     {
                         // Sign in Successful
                         self.performSegue(withIdentifier: "segue", sender: self)
+                        print("Register successful")
 
                     }
                     else
