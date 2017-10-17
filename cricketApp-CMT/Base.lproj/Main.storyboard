@@ -6,9 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+            <string>Avenir-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -17,12 +24,113 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cricket Scoring App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fE-Je-p9W">
+                                <rect key="frame" x="0.0" y="90" width="375" height="80"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="39"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jiQ-69-mZv">
+                                <rect key="frame" x="70" y="335" width="235" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q89-3B-lMg">
+                                <rect key="frame" x="70" y="440" width="235" height="33"/>
+                                <color key="backgroundColor" red="0.99160850050000005" green="0.58425903320000006" blue="0.42443481090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KCC-j4-rhQ">
+                                <rect key="frame" x="70" y="380" width="235" height="30"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1uf-V4-JOM">
+                                <rect key="frame" x="70" y="488" width="235" height="33"/>
+                                <color key="backgroundColor" red="0.38335649752906198" green="0.29875111877359689" blue="0.99160850050000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="15"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Eton-Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ibN-VV-cpn">
+                                <rect key="frame" x="123" y="178" width="128" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ibN-VV-cpn" secondAttribute="height" multiplier="1:1" id="rG6-bo-VdG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seena Shafai - C Michaelmas Trial 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hU-6f-lhJ">
+                                <rect key="frame" x="0.0" y="632" width="375" height="35"/>
+                                <color key="backgroundColor" white="0.84963727678571432" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="mtQ-OL-4bz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Y7-3m-3sV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" white="0.84963727680000001" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29039734601974487" green="0.65443331003189087" blue="0.49018234014511108" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0hU-6f-lhJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="05O-GM-hoC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q89-3B-lMg" secondAttribute="trailing" constant="70" id="0Be-1w-Vh4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KCC-j4-rhQ" secondAttribute="trailing" constant="70" id="18X-lE-9Dq"/>
+                            <constraint firstItem="9fE-Je-p9W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3jL-63-x7u"/>
+                            <constraint firstItem="ibN-VV-cpn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="178" id="4fk-Mw-PXP"/>
+                            <constraint firstItem="KCC-j4-rhQ" firstAttribute="top" secondItem="jiQ-69-mZv" secondAttribute="bottom" constant="15" id="6P2-Qg-34A"/>
+                            <constraint firstItem="0hU-6f-lhJ" firstAttribute="leading" secondItem="9fE-Je-p9W" secondAttribute="leading" id="7oV-0n-IMU"/>
+                            <constraint firstItem="9fE-Je-p9W" firstAttribute="top" secondItem="2Y7-3m-3sV" secondAttribute="bottom" constant="70" id="Fc7-gU-DSQ"/>
+                            <constraint firstItem="2Y7-3m-3sV" firstAttribute="leading" secondItem="9fE-Je-p9W" secondAttribute="leading" id="Fha-m6-XKf"/>
+                            <constraint firstItem="1uf-V4-JOM" firstAttribute="top" secondItem="Q89-3B-lMg" secondAttribute="bottom" constant="15" id="IcB-JB-AZW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jiQ-69-mZv" secondAttribute="trailing" constant="70" id="IeN-f8-MEl"/>
+                            <constraint firstItem="2Y7-3m-3sV" firstAttribute="trailing" secondItem="9fE-Je-p9W" secondAttribute="trailing" id="Imp-wK-fUX"/>
+                            <constraint firstItem="jiQ-69-mZv" firstAttribute="top" secondItem="9fE-Je-p9W" secondAttribute="bottom" constant="165" id="KGF-Fx-fw8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1uf-V4-JOM" secondAttribute="trailing" constant="70" id="N1G-GS-QHv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9fE-Je-p9W" secondAttribute="trailing" id="OJK-cK-4ry"/>
+                            <constraint firstItem="jiQ-69-mZv" firstAttribute="top" secondItem="ibN-VV-cpn" secondAttribute="bottom" constant="29" id="P09-Jq-tq3"/>
+                            <constraint firstItem="Q89-3B-lMg" firstAttribute="top" secondItem="KCC-j4-rhQ" secondAttribute="bottom" constant="30" id="P9e-1S-CHX"/>
+                            <constraint firstItem="KCC-j4-rhQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="ah8-Xf-t1E"/>
+                            <constraint firstItem="0hU-6f-lhJ" firstAttribute="trailing" secondItem="9fE-Je-p9W" secondAttribute="trailing" id="b6S-CI-HbC"/>
+                            <constraint firstItem="1uf-V4-JOM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="hki-eM-qzy"/>
+                            <constraint firstItem="2Y7-3m-3sV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ktL-r0-2JT"/>
+                            <constraint firstItem="Q89-3B-lMg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="nSP-2R-Vfm"/>
+                            <constraint firstItem="jiQ-69-mZv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="70" id="nr7-xl-3eb"/>
+                            <constraint firstItem="ibN-VV-cpn" firstAttribute="centerX" secondItem="jiQ-69-mZv" secondAttribute="centerX" id="oiS-eZ-HVb"/>
+                            <constraint firstItem="ibN-VV-cpn" firstAttribute="top" secondItem="9fE-Je-p9W" secondAttribute="bottom" constant="8" symbolic="YES" id="sXN-mF-n7y"/>
+                            <constraint firstItem="9fE-Je-p9W" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="uET-wo-P72"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="128.18590704647679"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Eton-Logo" width="1200" height="1378"/>
+    </resources>
 </document>
