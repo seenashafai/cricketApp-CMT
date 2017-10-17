@@ -14,6 +14,10 @@
 		043AC2C51F9625ED00DC9982 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043AC2C31F9625ED00DC9982 /* LaunchScreen.storyboard */; };
 		043AC2D01F9625ED00DC9982 /* cricketApp_CMTTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2CF1F9625ED00DC9982 /* cricketApp_CMTTests.swift */; };
 		043AC2DB1F9625ED00DC9982 /* cricketApp_CMTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2DA1F9625ED00DC9982 /* cricketApp_CMTUITests.swift */; };
+		043AC2EA1F962BAE00DC9982 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 043AC2E91F962AB100DC9982 /* GoogleService-Info.plist */; };
+		AC8EF75ECD9F09D1B0E30DED /* Pods_cricketApp_CMTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */; };
+		ACD582C7C9A44A60CF312A0B /* Pods_cricketApp_CMT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE11E091C7D2BFB508058A7C /* Pods_cricketApp_CMT.framework */; };
+		AE93ACBF241BCE7C76DF4202 /* Pods_cricketApp_CMTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B22D070BDE5C9D611CB48E3 /* Pods_cricketApp_CMTUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,16 @@
 		043AC2D61F9625ED00DC9982 /* cricketApp-CMTUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "cricketApp-CMTUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043AC2DA1F9625ED00DC9982 /* cricketApp_CMTUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cricketApp_CMTUITests.swift; sourceTree = "<group>"; };
 		043AC2DC1F9625ED00DC9982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		043AC2E91F962AB100DC9982 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests.release.xcconfig"; sourceTree = "<group>"; };
+		577D92F7E06B9490ECA040D4 /* Pods-cricketApp-CMT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT.debug.xcconfig"; sourceTree = "<group>"; };
+		5B22D070BDE5C9D611CB48E3 /* Pods_cricketApp_CMTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cricketApp_CMTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cricketApp_CMTTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F03E0179B9BF44EAF86BC26 /* Pods-cricketApp-CMTUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE11E091C7D2BFB508058A7C /* Pods_cricketApp_CMT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cricketApp_CMT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B233D292BC351784F2DBFB10 /* Pods-cricketApp-CMTTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTTests/Pods-cricketApp-CMTTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F81E063C441EF19983D17DF3 /* Pods-cricketApp-CMTTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTTests/Pods-cricketApp-CMTTests.release.xcconfig"; sourceTree = "<group>"; };
+		FBC2B92E60EBFE6449E08207 /* Pods-cricketApp-CMT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMT.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD582C7C9A44A60CF312A0B /* Pods_cricketApp_CMT.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC8EF75ECD9F09D1B0E30DED /* Pods_cricketApp_CMTTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE93ACBF241BCE7C76DF4202 /* Pods_cricketApp_CMTUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +98,8 @@
 				043AC2CE1F9625ED00DC9982 /* cricketApp-CMTTests */,
 				043AC2D91F9625ED00DC9982 /* cricketApp-CMTUITests */,
 				043AC2B81F9625ED00DC9982 /* Products */,
+				ECCEA861CAE3CC6F3A10798E /* Pods */,
+				F493573FFD813E03FFED11F7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +122,7 @@
 				043AC2C11F9625ED00DC9982 /* Assets.xcassets */,
 				043AC2C31F9625ED00DC9982 /* LaunchScreen.storyboard */,
 				043AC2C61F9625ED00DC9982 /* Info.plist */,
+				043AC2E91F962AB100DC9982 /* GoogleService-Info.plist */,
 			);
 			path = "cricketApp-CMT";
 			sourceTree = "<group>";
@@ -125,6 +145,29 @@
 			path = "cricketApp-CMTUITests";
 			sourceTree = "<group>";
 		};
+		ECCEA861CAE3CC6F3A10798E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				577D92F7E06B9490ECA040D4 /* Pods-cricketApp-CMT.debug.xcconfig */,
+				FBC2B92E60EBFE6449E08207 /* Pods-cricketApp-CMT.release.xcconfig */,
+				B233D292BC351784F2DBFB10 /* Pods-cricketApp-CMTTests.debug.xcconfig */,
+				F81E063C441EF19983D17DF3 /* Pods-cricketApp-CMTTests.release.xcconfig */,
+				9F03E0179B9BF44EAF86BC26 /* Pods-cricketApp-CMTUITests.debug.xcconfig */,
+				47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F493573FFD813E03FFED11F7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE11E091C7D2BFB508058A7C /* Pods_cricketApp_CMT.framework */,
+				805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */,
+				5B22D070BDE5C9D611CB48E3 /* Pods_cricketApp_CMTUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 043AC2DF1F9625ED00DC9982 /* Build configuration list for PBXNativeTarget "cricketApp-CMT" */;
 			buildPhases = (
+				B40F6EE0496124271633941E /* [CP] Check Pods Manifest.lock */,
 				043AC2B31F9625ED00DC9982 /* Sources */,
 				043AC2B41F9625ED00DC9982 /* Frameworks */,
 				043AC2B51F9625ED00DC9982 /* Resources */,
+				07A8D2BA31441D12F8109311 /* [CP] Embed Pods Frameworks */,
+				89D10964172367896B585176 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +195,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 043AC2E21F9625ED00DC9982 /* Build configuration list for PBXNativeTarget "cricketApp-CMTTests" */;
 			buildPhases = (
+				644A8688E770484C947D00CD /* [CP] Check Pods Manifest.lock */,
 				043AC2C71F9625ED00DC9982 /* Sources */,
 				043AC2C81F9625ED00DC9982 /* Frameworks */,
 				043AC2C91F9625ED00DC9982 /* Resources */,
+				5D437A253D5B3619373D2C24 /* [CP] Embed Pods Frameworks */,
+				F0E19D365B614A26E0D2354A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 043AC2E51F9625ED00DC9982 /* Build configuration list for PBXNativeTarget "cricketApp-CMTUITests" */;
 			buildPhases = (
+				9982FBF0D9A7E4AAA8F50253 /* [CP] Check Pods Manifest.lock */,
 				043AC2D21F9625ED00DC9982 /* Sources */,
 				043AC2D31F9625ED00DC9982 /* Frameworks */,
 				043AC2D41F9625ED00DC9982 /* Resources */,
+				97BEB2615C7A588516E8CCBC /* [CP] Embed Pods Frameworks */,
+				8041881E3C11937B2F7C00D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043AC2EA1F962BAE00DC9982 /* GoogleService-Info.plist in Resources */,
 				043AC2C51F9625ED00DC9982 /* LaunchScreen.storyboard in Resources */,
 				043AC2C21F9625ED00DC9982 /* Assets.xcassets in Resources */,
 				043AC2C01F9625ED00DC9982 /* Main.storyboard in Resources */,
@@ -253,6 +306,160 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		07A8D2BA31441D12F8109311 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D437A253D5B3619373D2C24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMTTests/Pods-cricketApp-CMTTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		644A8688E770484C947D00CD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cricketApp-CMTTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8041881E3C11937B2F7C00D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89D10964172367896B585176 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97BEB2615C7A588516E8CCBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9982FBF0D9A7E4AAA8F50253 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cricketApp-CMTUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B40F6EE0496124271633941E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-cricketApp-CMT-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0E19D365B614A26E0D2354A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMTTests/Pods-cricketApp-CMTTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		043AC2B31F9625ED00DC9982 /* Sources */ = {
@@ -424,6 +631,7 @@
 		};
 		043AC2E01F9625ED00DC9982 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 577D92F7E06B9490ECA040D4 /* Pods-cricketApp-CMT.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -440,6 +648,7 @@
 		};
 		043AC2E11F9625ED00DC9982 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC2B92E60EBFE6449E08207 /* Pods-cricketApp-CMT.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +665,7 @@
 		};
 		043AC2E31F9625ED00DC9982 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B233D292BC351784F2DBFB10 /* Pods-cricketApp-CMTTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +683,7 @@
 		};
 		043AC2E41F9625ED00DC9982 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F81E063C441EF19983D17DF3 /* Pods-cricketApp-CMTTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +701,7 @@
 		};
 		043AC2E61F9625ED00DC9982 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F03E0179B9BF44EAF86BC26 /* Pods-cricketApp-CMTUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +718,7 @@
 		};
 		043AC2E71F9625ED00DC9982 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
