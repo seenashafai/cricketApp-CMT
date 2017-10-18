@@ -11,33 +11,26 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
-
-
-
-class SignupViewController: UIViewController {
+class SignupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var inputEmail: UITextField!
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
     
+    var alerts = alertClass()
+    
     @IBAction func signupNow(_ sender: UIButton)
     {
-        var passMatch = true
-        if self.inputPassword != self.confirmPassword
-        {
-            // Passwords do not match
-            print("Passwords do not match")
-            passMatch = false
-            
-        }
+        let isEqual: Bool = (inputPassword.text == confirmPassword.text)
         if inputEmail.text != "" || inputPassword.text != ""
         {
-            if passMatch == true
+            if isEqual == true
             {
-            Auth.auth().createUser(withEmail: inputEmail.text!, password: inputPassword.text!) { (user, error) in
+                Auth.auth().createUser(withEmail: inputEmail.text!, password: inputPassword.text!) { (user, error) in
                 if user != nil
                 {
                     // Sign up Successful
+                    self.present(self.alerts.createAlert(), animated: true, completion: nil)
                     self.performSegue(withIdentifier: "segue", sender: self)
                     print("Register successful")
                 }
@@ -56,6 +49,22 @@ class SignupViewController: UIViewController {
         }
     }
 }
+
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+        confirmPassword.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        inputEmail.resignFirstResponder()
+        inputPassword.resignFirstResponder()
+        confirmPassword.resignFirstResponder()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

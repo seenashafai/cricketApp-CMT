@@ -22,7 +22,7 @@ class secondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(Auth.auth().currentUser?.email)
+        print(Auth.auth().currentUser?.email as Any)
     }
 
     override func didReceiveMemoryWarning() {
