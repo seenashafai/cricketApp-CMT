@@ -14,8 +14,7 @@ class alertClass: UIAlertController {
     
     func createAlert() -> UIAlertController {
         let successAlert = UIAlertController(title: "Registration Successful", message: "Please now login using your new credentials", preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Cancel", style: .cancel) {(action) in
-            print("This is action 1")
+        let action1 = UIAlertAction(title: "Continue", style: .default) {(action) in
         }
         successAlert.addAction(action1)
         present(successAlert, animated: true, completion: nil)

@@ -31,7 +31,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 {
                     // Sign up Successful
                     self.present(self.alerts.createAlert(), animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "segue", sender: self)
                     print("Register successful")
                 }
                 else
