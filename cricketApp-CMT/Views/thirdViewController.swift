@@ -10,9 +10,13 @@ import UIKit
 
 class thirdViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
     
+    //MARK: - IBOutlets
+    @IBOutlet weak var tableView: UITableView!
+    
+    //MARK: - Declare variables
     var playerList = [String]()
 
-    
+    //MARK: - Conform to delegates
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return (playerList.count)
@@ -29,12 +33,13 @@ class thirdViewController: UIViewController, UITabBarDelegate, UITableViewDataSo
         if editingStyle == UITableViewCellEditingStyle.delete
         {
             playerList.remove(at: indexPath.row)
+            tableView.reloadData()
             
         }
     }
     
     
-    
+    //MARK: - View cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +51,5 @@ class thirdViewController: UIViewController, UITabBarDelegate, UITableViewDataSo
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
