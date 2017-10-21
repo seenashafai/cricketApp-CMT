@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 import os.log
 
 class newTableViewController: UITableViewController {
     
     var players = [playerClass]()
+    var ref: DatabaseReference!
+    var handle: DatabaseHandle!
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Initialise Firebase Database
+        ref = Database.database().reference()
+        
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
@@ -147,6 +155,7 @@ class newTableViewController: UITableViewController {
                 let newIndexPath = IndexPath(row: players.count, section: 0)
                 
                 players.append(player)
+                ref?.child("players").childByAutoId().setValue(player)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
@@ -170,6 +179,7 @@ class newTableViewController: UITableViewController {
         guard let player3 = playerClass(name: "Desmond Tuttu") else {
             fatalError("Unable to instantiate meal2")
         }
+        
         
         players += [player1, player2, player3]
     }

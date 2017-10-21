@@ -55,6 +55,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
         navigationItem.title = textField.text
     }
     
+    // Decide direction of segue
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
         let isPresentingInAddPlayerMode = presentingViewController is UINavigationController
