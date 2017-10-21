@@ -11,19 +11,31 @@ import UIKit
 
 class playerClass {
     
-    var id: String?
-    var name: String?
-    var block: String?
+    //var id: String?
     
+    var name: String?
+    //var block: String?
+    //var photo: UIImage?
+    
+    /*
     var runs: Int?
     var faced: Int?
     var wickets: Int?
     var bowled: Int?
     var runRate: Int?
+ */
     
-    init(id: String?, name: String?, block: String?)
+    init?(name: String?)
     {
+        guard !((name?.isEmpty)!) else
+        {
+            return nil
+        }
         
+        // Initialize stored properties.
+        self.name = name
+        //self.photo = photo
+        //self.block = block
     }
     
 }
