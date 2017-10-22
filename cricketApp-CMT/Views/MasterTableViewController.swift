@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 import os.log
 
 class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -17,7 +19,9 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var players: playerClass?
-    
+    var ref: DatabaseReference!
+    var handle: DatabaseHandle!
+    var playerEditArray = [String]()
     
     override func viewDidLoad()
     {
@@ -26,11 +30,23 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         
+        // Initialise Firebase Database
+        ref = Database.database().reference()
+        
+        // Load existing database data
+        handle = ref?.child("players").observe(.childAdded, with: { (snapshot) in
+            
+            if let item = snapshot.value as? String
+            {
+                self.playerEditArray.append(item)
+            }
+        })
+        
         // Set up views if editing an existing player.
         if let players = players
         {
-            navigationItem.title = players.name
-            nameTextField.text = players.name
+            // navigationItem.title =
+            // nameTextField.text = 
         }
         
         // Enables save button only if the player name is valid

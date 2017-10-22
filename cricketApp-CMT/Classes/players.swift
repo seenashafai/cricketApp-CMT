@@ -11,6 +11,8 @@ import UIKit
 
 class playerClass {
     
+    
+    
     //var id: String?
     
     var name: String?

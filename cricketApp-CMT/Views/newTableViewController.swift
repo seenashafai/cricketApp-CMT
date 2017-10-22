@@ -14,6 +14,7 @@ import os.log
 class newTableViewController: UITableViewController {
     
     var players = [playerClass]()
+    var databasePlayers = [String]()
     var ref: DatabaseReference!
     var handle: DatabaseHandle!
 
@@ -24,12 +25,19 @@ class newTableViewController: UITableViewController {
         // Initialise Firebase Database
         ref = Database.database().reference()
         
+        // Load existing database data
+        handle = ref?.child("players").observe(.childAdded, with: { (snapshot) in
+            
+            if let item = snapshot.value as? String
+            {
+                self.databasePlayers.append(item)
+                self.tableView.reloadData()
+            }
+        })
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
-        // Load the sample data.
-        loadSamplePlayers()
     }
 
     override func didReceiveMemoryWarning()
@@ -45,7 +53,8 @@ class newTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return players.count
+        // return players.count
+        return databasePlayers.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,16 +68,15 @@ class newTableViewController: UITableViewController {
         
         // Fetches the appropriate meal for the data source layout.
         
-        let player = players[indexPath.row]
-
-
-        cell.nameLabel.text = player.name
+        // let player = players[indexPath.row]
+        
+        let player = databasePlayers[indexPath.row]
+        cell.nameLabel?.text = databasePlayers[indexPath.row]
         return cell
     }
     
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
@@ -104,7 +112,7 @@ class newTableViewController: UITableViewController {
     
     //MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // Preparing ShowDetail and AddItem segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         super.prepare(for: segue, sender: sender)
@@ -142,6 +150,7 @@ class newTableViewController: UITableViewController {
     
     //MARK: Actions
     
+    // Reverse Segue
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MasterTableViewController, let player = sourceViewController.players {
             
@@ -160,29 +169,4 @@ class newTableViewController: UITableViewController {
             }
         }
     }
-    
-
-    //MARK: Private Methods
-    
-    private func loadSamplePlayers() {
-        
-        _ = UIImage(named: "player1")
-
-        guard let player1 = playerClass(name: "Johnny Davidson") else {
-            fatalError("Unable to instantiate meal1")
-        }
-        
-        guard let player2 = playerClass(name: "Jeremy Corbyn") else {
-            fatalError("Unable to instantiate meal2")
-        }
-        
-        guard let player3 = playerClass(name: "Desmond Tuttu") else {
-            fatalError("Unable to instantiate meal2")
-        }
-        
-        
-        players += [player1, player2, player3]
-    }
-
-
 }
