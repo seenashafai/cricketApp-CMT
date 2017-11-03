@@ -18,7 +18,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var players: playerClass?
+    var players: PlayerItem?
     var ref: DatabaseReference!
     var handle: DatabaseHandle!
     var playerEditArray = [String]()
@@ -106,7 +106,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
 
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
-        players = playerClass(name: name)
+       //players = PlayerItem(snapshot: name)
     }
     
 

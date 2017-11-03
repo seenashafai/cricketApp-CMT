@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class playerClass {
+/*
+ class playerClass {
     
     
     
@@ -40,4 +41,5 @@ class playerClass {
         //self.block = block
     }
     
-}
+
+*/
