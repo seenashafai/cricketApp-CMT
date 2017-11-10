@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0424521F1FB39DE5004933EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424521E1FB39DE5004933EC /* DetailsViewController.swift */; };
 		043AC2BB1F9625ED00DC9982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2BA1F9625ED00DC9982 /* AppDelegate.swift */; };
 		043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2BC1F9625ED00DC9982 /* LoginViewController.swift */; };
 		043AC2C01F9625ED00DC9982 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 043AC2BE1F9625ED00DC9982 /* Main.storyboard */; };
@@ -20,9 +21,8 @@
 		046727A41F9CA8F400FC885D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046727A31F9CA8F400FC885D /* User.swift */; };
 		04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04793DA91F978C0800721BF5 /* SignupViewController.swift */; };
 		04793DB01F97A3BC00721BF5 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04793DAF1F97A3BC00721BF5 /* Alerts.swift */; };
-		0482E69E1F97E5400071C324 /* players.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0482E69D1F97E5400071C324 /* players.swift */; };
 		04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191001F9A5A1E00BD100E /* newTableViewController.swift */; };
-		04B191031F9A5A2A00BD100E /* MasterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191021F9A5A2A00BD100E /* MasterTableViewController.swift */; };
+		04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */; };
 		04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */; };
 		AC8EF75ECD9F09D1B0E30DED /* Pods_cricketApp_CMTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */; };
 		ACD582C7C9A44A60CF312A0B /* Pods_cricketApp_CMT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE11E091C7D2BFB508058A7C /* Pods_cricketApp_CMT.framework */; };
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0424521E1FB39DE5004933EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		043AC2B71F9625ED00DC9982 /* cricketApp-CMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cricketApp-CMT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043AC2BA1F9625ED00DC9982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		043AC2BC1F9625ED00DC9982 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -67,9 +68,8 @@
 		046727A31F9CA8F400FC885D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04793DA91F978C0800721BF5 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		04793DAF1F97A3BC00721BF5 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		0482E69D1F97E5400071C324 /* players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = players.swift; sourceTree = "<group>"; };
 		04B191001F9A5A1E00BD100E /* newTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTableViewController.swift; sourceTree = "<group>"; };
-		04B191021F9A5A2A00BD100E /* MasterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterTableViewController.swift; sourceTree = "<group>"; };
+		04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		577D92F7E06B9490ECA040D4 /* Pods-cricketApp-CMT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				04793DAF1F97A3BC00721BF5 /* Alerts.swift */,
-				0482E69D1F97E5400071C324 /* players.swift */,
 				046727A11F9CA80A00FC885D /* Player.swift */,
 				046727A31F9CA8F400FC885D /* User.swift */,
 			);
@@ -190,11 +189,12 @@
 			isa = PBXGroup;
 			children = (
 				043AC2BC1F9625ED00DC9982 /* LoginViewController.swift */,
+				0424521E1FB39DE5004933EC /* DetailsViewController.swift */,
 				04793DA91F978C0800721BF5 /* SignupViewController.swift */,
 				04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */,
 				043AC2EF1F96B9E700DC9982 /* AccountViewController.swift */,
 				04B191001F9A5A1E00BD100E /* newTableViewController.swift */,
-				04B191021F9A5A2A00BD100E /* MasterTableViewController.swift */,
+				04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -536,10 +536,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */,
-				0482E69E1F97E5400071C324 /* players.swift in Sources */,
 				043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */,
 				04793DB01F97A3BC00721BF5 /* Alerts.swift in Sources */,
-				04B191031F9A5A2A00BD100E /* MasterTableViewController.swift in Sources */,
+				0424521F1FB39DE5004933EC /* DetailsViewController.swift in Sources */,
+				04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */,
 				043AC2F01F96B9E700DC9982 /* AccountViewController.swift in Sources */,
 				04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */,
 				04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */,

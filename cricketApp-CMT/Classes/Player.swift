@@ -7,40 +7,54 @@
 //
 
 import Foundation
-import Firebase
-import FirebaseDatabase
 
-struct PlayerItem {
+
+struct metaData
+{
+    var playerName: String?
+    var block: String?
+}
+
+
+struct statsData
+{
+    var faced: Int?
+    var runs: Int?
+    var outs: Int?
+}
+
+enum Out {
     
-    let key: String
-    let name: String
-    let block: String
-    let addedByUser: String
-    let ref: DatabaseReference!
+    case blank
+    case caught
+    case runout
+    case bowled
+    case lbw
+    case stumped
+    case obstructfield
+    case handledball
+    case hitwickets
+    case hittwice
+    case timedout
     
-    init(name: String, addedByUser: String, key: String = "", block: String) {
-        self.key = key
-        self.name = name
-        self.addedByUser = addedByUser
-        self.ref = nil
-        self.block = block
+}
+
+class PlayerClass {
+    var meta = metaData()
+    var stats = statsData()
+
+    init() {
+        
+        meta.block = ""
+        meta.playerName = ""
+        stats.faced = 0
+        stats.runs = 0
+        stats.outs = 0
+        
+
+        
+
+
+
     }
-    
-    init(snapshot: DataSnapshot) {
-        key = snapshot.key
-        let snapshotValue = snapshot.value as! [String: AnyObject]
-        name = snapshotValue["name"] as! String
-        addedByUser = snapshotValue["addedByUser"] as! String
-        block = snapshotValue["block"] as! String
-        ref = snapshot.ref
-    }
-    
-    func toAnyObject() -> Any {
-        return [
-            "name": name,
-            "addedByUser": addedByUser,
-            "block": block
-        ]
-    }
-    
 }

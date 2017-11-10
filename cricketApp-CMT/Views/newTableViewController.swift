@@ -9,42 +9,73 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import os.log
 
-class newTableViewController: UITableViewController {
+class newTableViewController: UITableViewController{
     
-    var players = [PlayerItem]()
-    var databasePlayers = [String]()
-    var ref: DatabaseReference!
-    var handle: DatabaseHandle!
+    var playerArray = [PlayerClass]()
+    
+    //Initialise dummy players
+    var player1 = PlayerClass()
+    var player2 = PlayerClass()
+    var player3 = PlayerClass()
+    var player4 = PlayerClass()
+    var player5 = PlayerClass()
+    
+    //var ref: DatabaseReference!
+    //var handle: DatabaseHandle!
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
         // Initialise Firebase Database
-        ref = Database.database().reference()
+        //ref = Database.database().reference()
         
         // Load existing database data
-        handle = ref?.child("players").observe(.childAdded, with: { (snapshot) in
-            
-            var newItems: [PlayerItem] = []
-            
-            for item in snapshot.children
-            {
-                let playerItem = PlayerItem(snapshot: item as! DataSnapshot)
-                newItems.append(playerItem)
-            }
-            
-            self.players = newItems
-            self.tableView.reloadData()
-        })
+        
         
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
+    
+        
+        player1.meta.playerName = "Adam"
+        player1.meta.block = "B"
+        player1.stats.faced = 5
+        player1.stats.runs = 10
+        playerArray.append(player1)
+        
+        player2.meta.playerName = "Brian"
+        player2.meta.block = "B"
+        player2.stats.faced = 6
+        player2.stats.runs = 12
+        
+        playerArray.append(player2)
+        
+        player3.meta.playerName = "Chris"
+        player3.meta.block = "C"
+        player3.stats.faced = 7
+        player3.stats.runs = 14
+        
+        playerArray.append(player3)
+        
+        player4.meta.playerName = "Desmond"
+        player4.meta.block = "C"
+        player4.stats.faced = 8
+        player4.stats.runs = 16
+        
+        playerArray.append(player4)
+        
+        player5.meta.playerName = "Edward"
+        player1.meta.block = "D"
+        player1.stats.faced = 9
+        player1.stats.runs = 18
+        
+        playerArray.append(player5)
+        print(playerArray)
+
         
     }
-
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
@@ -60,115 +91,74 @@ class newTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return databasePlayers.count
+        return playerArray.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cellIdentifier = "PlayerTableViewCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? PlayerTableViewCell  else
-        {
-            fatalError("The dequeued cell is not an instance of PlayerTableViewCell.")
-        }
-        
-        let player = databasePlayers[indexPath.row]
-        cell.nameLabel?.text = databasePlayers[indexPath.row]
-        return cell
-    }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
         return true
     }
     
-    
-    
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            players.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+    {
+        performSegue(withIdentifier: "showDetail", sender: self)
     }
     
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        let cell = UITableViewCell()
+        let player = playerArray[indexPath.row]
+        cell.textLabel?.text = player.meta.playerName
+        
+        return cell
+    }
     
     
     //MARK: - Navigation
     
     // Preparing ShowDetail and AddItem segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        super.prepare(for: segue, sender: sender)
-        
-        switch(segue.identifier ?? "") {
-            
-        case "AddItem":
-            if #available(iOS 10.0, *) {
-                os_log("Adding a new meal.", log: OSLog.default, type: .debug)
-            } else {
-                // Fallback on earlier versions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == "showDetail"
+        {
+            if let indexPath = self.tableView.indexPathForSelectedRow
+            {
+                let destinationVC = segue.destination as! DetailsViewController
+                destinationVC.nameLabel = playerArray[indexPath.row].meta.playerName!
+                destinationVC.blockLabel = playerArray[indexPath.row].meta.block!
+                destinationVC.facedLabel = playerArray[indexPath.row].stats.faced!
+                destinationVC.runsLabel = playerArray[indexPath.row].stats.runs!
+                destinationVC.outsCount = playerArray[indexPath.row].stats.outs!
+                
+                
             }
-            
-        case "ShowDetail":
-            guard let playerDetailViewController = segue.destination as? MasterTableViewController else {
-                fatalError("Unexpected destination: \(segue.destination)")
-            }
-            
-            guard let selectedPlayerCell = sender as? PlayerTableViewCell else {
-                fatalError("Unexpected sender: \(String(describing: sender))")
-            }
-            
-            guard let indexPath = tableView.indexPath(for: selectedPlayerCell) else {
-                fatalError("The selected cell is not being displayed by the table")
-            }
-            
-            let selectedPlayer = players[indexPath.row]
-            playerDetailViewController.players = selectedPlayer
-            
-        default:
-            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
+           
     }
-    
+
     
     //MARK: Actions
     
     // Reverse Segue
-    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+
+    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? MasterTableViewController, let player = sourceViewController.players {
             
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing player.
-                players[selectedIndexPath.row] = player
+                playerArray[selectedIndexPath.row] = player
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
             else {
                 // Add a new player.
-                let newIndexPath = IndexPath(row: players.count, section: 0)
+                let newIndexPath = IndexPath(row: playerArray.count, section: 0)
                 
-                players.append(player)
-                ref?.child("players").childByAutoId().setValue(player)
+                playerArray.append(player)
+                //ref?.child("players").childByAutoId().setValue(player)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
     }
+
 }

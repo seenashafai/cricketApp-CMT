@@ -18,7 +18,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var players: PlayerItem?
+    var players: PlayerClass?
     var ref: DatabaseReference!
     var handle: DatabaseHandle!
     var playerEditArray = [String]()
@@ -29,7 +29,8 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
         
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
-        
+
+/*
         // Initialise Firebase Database
         ref = Database.database().reference()
         
@@ -41,15 +42,9 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
                 self.playerEditArray.append(item)
             }
         })
+*/
         
-        // Set up views if editing an existing player.
-        if let players = players
-        {
-            // navigationItem.title =
-            // nameTextField.text = 
-        }
         
-        // Enables save button only if the player name is valid
         updateSaveButtonState()
     }
     
@@ -87,27 +82,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UIImageP
         }
     }
     
-    // Preparing for view change
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        super.prepare(for: segue, sender: sender)
-        
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIBarButtonItem, button === saveButton else {
-            if #available(iOS 10.0, *) {
-                os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            } else {
-                print("Error")
-            }
-            return
-        }
-        
-        let name = nameTextField.text ?? ""
 
-        
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-       //players = PlayerItem(snapshot: name)
-    }
     
 
     
