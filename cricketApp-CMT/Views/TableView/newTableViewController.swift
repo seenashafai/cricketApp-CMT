@@ -34,6 +34,7 @@ class newTableViewController: UITableViewController{
         // Load existing database data
         
         
+        
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
     
@@ -42,12 +43,17 @@ class newTableViewController: UITableViewController{
         player1.meta.block = "B"
         player1.stats.faced = 5
         player1.stats.runs = 10
+        player1.stats.status = .notOut
+        player1.stats.outMethod = .notOut
+        
         playerArray.append(player1)
         
         player2.meta.playerName = "Brian"
         player2.meta.block = "B"
         player2.stats.faced = 6
         player2.stats.runs = 12
+        player2.stats.status = .notOut
+        player2.stats.outMethod = .notOut
         
         playerArray.append(player2)
         
@@ -55,23 +61,31 @@ class newTableViewController: UITableViewController{
         player3.meta.block = "C"
         player3.stats.faced = 7
         player3.stats.runs = 14
-        
+        player3.stats.outMethod = .notOut
+        player3.stats.status = .notOut
+
+
         playerArray.append(player3)
         
         player4.meta.playerName = "Desmond"
         player4.meta.block = "C"
         player4.stats.faced = 8
         player4.stats.runs = 16
-        
+        player4.stats.outMethod = .notOut
+        player4.stats.status = .notOut
+
+
         playerArray.append(player4)
         
         player5.meta.playerName = "Edward"
-        player1.meta.block = "D"
-        player1.stats.faced = 9
-        player1.stats.runs = 18
-        
+        player5.meta.block = "D"
+        player5.stats.faced = 9
+        player5.stats.runs = 18
+        player5.stats.outMethod = .notOut
+        player5.stats.status = .notOut
+
+
         playerArray.append(player5)
-        print(playerArray)
 
         
     }
@@ -129,7 +143,8 @@ class newTableViewController: UITableViewController{
                 destinationVC.blockLabel = playerArray[indexPath.row].meta.block!
                 destinationVC.facedLabel = playerArray[indexPath.row].stats.faced!
                 destinationVC.runsLabel = playerArray[indexPath.row].stats.runs!
-                destinationVC.outsCount = playerArray[indexPath.row].stats.outs!
+                destinationVC.status = playerArray[indexPath.row].stats.status!
+                destinationVC.outMethod = playerArray[indexPath.row].stats.outMethod!
                 
                 
             }
@@ -140,22 +155,19 @@ class newTableViewController: UITableViewController{
     
     //MARK: Actions
     
-    // Reverse Segue
-
-    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? MasterTableViewController, let player = sourceViewController.players {
-            
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                // Update an existing player.
-                playerArray[selectedIndexPath.row] = player
+    @IBAction func unwindToPlayerList(sender: UIStoryboardSegue)
+    {
+        if let sourceViewController = sender.source as? MasterTableViewController, let addedPlayer: PlayerClass = sourceViewController.newPlayer
+        {
+            if let selectedIndexPath = tableView.indexPathForSelectedRow
+            {
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             }
-            else {
-                // Add a new player.
+            else
+            {
                 let newIndexPath = IndexPath(row: playerArray.count, section: 0)
-                
-                playerArray.append(player)
-                //ref?.child("players").childByAutoId().setValue(player)
+                playerArray.append(addedPlayer)
+                print(addedPlayer)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
