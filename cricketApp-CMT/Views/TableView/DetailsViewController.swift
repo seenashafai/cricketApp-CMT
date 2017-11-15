@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class DetailsViewController: UIViewController {
+    
+    //MARK: - Properties
+    var indexPath: Int? = 0
+    
+    var playerName: String? = ""
 
-    var player = PlayerClass()
     
-    var nameLabel: String = ""
-    var blockLabel: String = ""
-    var runsLabel: Int = 0
-    var facedLabel: Int = 0
-    var status: Status = .notOut
-    var outMethod: Out = .notOut
+    //Firebase
+    var ref: DatabaseReference?
     
-    
+
+    //MARK: - IBOutlets
     @IBOutlet weak var playerNameLabel: UILabel!
     
     @IBOutlet weak var playerBlockLabel: UILabel!
@@ -37,12 +40,12 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.playerNameLabel.text = nameLabel
-        self.playerBlockLabel.text = blockLabel
-        self.playerRunsLabel.text = String(runsLabel)
-        self.playerFacedLabel.text = String(facedLabel)
-        self.playerStatus.text = status.description
-        self.playerOutsMethod.text = outMethod.description
+  
+        //Firebase Initialization
+        ref = Database.database().reference()
+        
+        print(indexPath)
+        print(playerName)
         
         
     }

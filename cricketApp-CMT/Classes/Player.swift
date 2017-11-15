@@ -38,7 +38,9 @@ enum Status: String, CustomStringConvertible {
     
     var description: String {
         get {
-            switch (self) {
+            switch (self)
+            
+            {
             case .out:
                 return "out"
             case .notOut:
@@ -51,14 +53,47 @@ enum Status: String, CustomStringConvertible {
                 return "currently wicket keeping"
             case .bowling:
                 return "currently bowling"
-                
-
             }
+            
         }
     }
     
 }
 
+enum Block: String, CustomStringConvertible {
+    
+    case B
+    case C
+    case D
+    case E
+    case F
+    case other
+    
+    var description: String {
+        get {
+            switch (self)
+                
+            {
+            case .B:
+                return "B"
+            case .C:
+                return "C"
+            case .D:
+                return "D"
+            case .E:
+                return "E"
+            case .F:
+                return "F"
+            case .other:
+                return "other"
+                
+    
+            }
+            
+        }
+    }
+    
+}
 
 
 
@@ -107,17 +142,18 @@ enum Out: String, CustomStringConvertible {
     
 }
 
-class PlayerClass {
+class PlayerClass
+{
     var meta = metaData()
     var stats = statsData()
 
-    init() {
-        
+    init()
+    {
         meta.block = ""
         meta.playerName = ""
         stats.faced = 0
         stats.runs = 0
         stats.outMethod = .notOut
         stats.status = .notOut
-        }
+    }
 }

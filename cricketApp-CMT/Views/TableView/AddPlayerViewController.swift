@@ -9,22 +9,18 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import os.log
 
 class MasterTableViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
-    //MARK: - Properties
     
+    //MARK: - Properties
     var players: PlayerClass?
     
-    var nameLabel: String = ""
-    var blockLabel: String = ""
-    var runsLabel: Int = 0
-    var facedLabel: Int = 0
-    var statusLabel: Status = .notOut
-    var outMethod: Out = .notOut
-    var newPlayer = PlayerClass()
+    //Firebase
+    var ref: DatabaseReference?
+
     
+    //MARK: - IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var blockTextField: UITextField!
@@ -37,10 +33,11 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     
     @IBOutlet weak var playerOutMethod: UITextField!
     
-    
-    
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    
+    //MARK: UIBarButton Items
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -51,26 +48,17 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     {
         super.viewDidLoad()
         
+        //Firebase
+        ref = Database.database().reference()
+        
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
         
-        self.nameTextField.text = nameLabel
-        self.blockTextField.text = blockLabel
-        self.runsTextField.text = String(runsLabel)
-        self.facedTextField.text = String(facedLabel)
-        self.statusTextField.text = statusLabel.description
-        self.playerOutMethod.text = outMethod.description
-        
-        let newPlayer = PlayerClass()
-        newPlayer.meta.playerName = nameLabel
-        newPlayer.meta.block = blockLabel
-        newPlayer.stats.faced = facedLabel
-        newPlayer.stats.runs = runsLabel
-        newPlayer.stats.status = statusLabel
-        newPlayer.stats.outMethod = outMethod
+
         
     }
     
@@ -98,19 +86,17 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     
     //MARK: - Navigation
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
         
-
-        newPlayer.meta.playerName = nameLabel
-        newPlayer.meta.block = blockLabel
-        newPlayer.stats.faced = facedLabel
-        newPlayer.stats.runs = runsLabel
-        newPlayer.stats.status = statusLabel
-        newPlayer.stats.outMethod = outMethod
+        let playerMetaDict = ["block": blockTextField.text, "playername": nameTextField.text]
+        let playerStatsDict = ["faced": facedTextField.text, "outmethod": playerOutMethod.text, "runs": runsTextField.text, "status": statusTextField.text]
         
+        ref?.child("players").child(nameTextField.text!).child("meta").setValue(playerMetaDict)
+        ref?.child("players").child(nameTextField.text!).child("stats").setValue(playerStatsDict)
+
+        ref?.child("playernames").childByAutoId().setValue(nameTextField.text)
         
         guard let button = sender as? UIBarButtonItem, button == saveButton else
         {

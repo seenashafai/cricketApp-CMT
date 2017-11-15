@@ -1,5 +1,5 @@
 //
-//  ScoreHubViewController.swift
+//  ScoreSheetViewController.swift
 //  cricketApp-CMT
 //
 //  Created by Seena Shafai on 11/11/2017.
@@ -8,11 +8,22 @@
 
 import UIKit
 
-class ScoreHubViewController: UIViewController {
+class ScoreSheetViewController: UIViewController {
     
-    var games: Array = [Game]()
+    var ballIndex = 0
 
-    @IBOutlet weak var gameInfoLabel: UILabel!
+    //MARK: - IBOutlets
+    
+    @IBOutlet weak var ball1Score: UILabel!
+    @IBOutlet weak var ball2Score: UILabel!
+    @IBOutlet weak var ball3Score: UILabel!
+    @IBOutlet weak var ball4Score: UILabel!
+    @IBOutlet weak var ball5Score: UILabel!
+    @IBOutlet weak var ball6Score: UILabel!
+    
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,17 +31,14 @@ class ScoreHubViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func unwindToGameHub(sender: UIStoryboardSegue)
-    {
-        if let sourceViewController = sender.source as? GameSetupViewController, let newGame: [Game] = sourceViewController.gameDataArray
-        {
-            print(newGame[0].GameMeta.gameID)
-        }
-    }
+
+    
 
 }

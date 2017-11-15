@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F532C1FB8C06B00726B99 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F532B1FB8C06B00726B99 /* Ball.swift */; };
+		040F532E1FB8C93700726B99 /* BallSelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */; };
+		040F53371FB8C9BB00726B99 /* BallRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F53361FB8C9BB00726B99 /* BallRunViewController.swift */; };
+		040F53391FB8C9C200726B99 /* BallOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F53381FB8C9C200726B99 /* BallOutViewController.swift */; };
 		0424521F1FB39DE5004933EC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0424521E1FB39DE5004933EC /* DetailsViewController.swift */; };
 		043AC2BB1F9625ED00DC9982 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2BA1F9625ED00DC9982 /* AppDelegate.swift */; };
 		043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2BC1F9625ED00DC9982 /* LoginViewController.swift */; };
@@ -17,6 +21,7 @@
 		043AC2DB1F9625ED00DC9982 /* cricketApp_CMTUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2DA1F9625ED00DC9982 /* cricketApp_CMTUITests.swift */; };
 		043AC2EA1F962BAE00DC9982 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 043AC2E91F962AB100DC9982 /* GoogleService-Info.plist */; };
 		043AC2F01F96B9E700DC9982 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043AC2EF1F96B9E700DC9982 /* AccountViewController.swift */; };
+		043B11BE1FB6FC98004AFACF /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B11BD1FB6FC98004AFACF /* Game.swift */; };
 		046727A21F9CA80A00FC885D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046727A11F9CA80A00FC885D /* Player.swift */; };
 		046727A41F9CA8F400FC885D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046727A31F9CA8F400FC885D /* User.swift */; };
 		04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04793DA91F978C0800721BF5 /* SignupViewController.swift */; };
@@ -26,6 +31,8 @@
 		04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */; };
 		04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */; };
 		04C308181FB6F5B400F501C8 /* ScoreHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */; };
+		04C3081D1FB6F88B00F501C8 /* ScoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */; };
+		04C3081F1FB6FA5900F501C8 /* GameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */; };
 		AC8EF75ECD9F09D1B0E30DED /* Pods_cricketApp_CMTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */; };
 		ACD582C7C9A44A60CF312A0B /* Pods_cricketApp_CMT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE11E091C7D2BFB508058A7C /* Pods_cricketApp_CMT.framework */; };
 		AE93ACBF241BCE7C76DF4202 /* Pods_cricketApp_CMTUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B22D070BDE5C9D611CB48E3 /* Pods_cricketApp_CMTUITests.framework */; };
@@ -49,6 +56,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040F532B1FB8C06B00726B99 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallSelectTypeViewController.swift; sourceTree = "<group>"; };
+		040F53361FB8C9BB00726B99 /* BallRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallRunViewController.swift; sourceTree = "<group>"; };
+		040F53381FB8C9C200726B99 /* BallOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallOutViewController.swift; sourceTree = "<group>"; };
 		0424521E1FB39DE5004933EC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		043AC2B71F9625ED00DC9982 /* cricketApp-CMT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "cricketApp-CMT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		043AC2BA1F9625ED00DC9982 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +76,7 @@
 		043AC2DC1F9625ED00DC9982 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		043AC2E91F962AB100DC9982 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "cricketApp-CMT/GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		043AC2EF1F96B9E700DC9982 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		043B11BD1FB6FC98004AFACF /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		043C3CE61F9E13F000A0BC98 /* cricketApp-CMT.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "cricketApp-CMT.entitlements"; sourceTree = "<group>"; };
 		046727A11F9CA80A00FC885D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		046727A31F9CA8F400FC885D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -75,6 +87,8 @@
 		04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHubViewController.swift; sourceTree = "<group>"; };
+		04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheetViewController.swift; sourceTree = "<group>"; };
+		04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetupViewController.swift; sourceTree = "<group>"; };
 		47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests.release.xcconfig"; sourceTree = "<group>"; };
 		577D92F7E06B9490ECA040D4 /* Pods-cricketApp-CMT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMT.debug.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT.debug.xcconfig"; sourceTree = "<group>"; };
 		5B22D070BDE5C9D611CB48E3 /* Pods_cricketApp_CMTUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cricketApp_CMTUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +128,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040F532F1FB8C94C00726B99 /* Scoresheet */ = {
+			isa = PBXGroup;
+			children = (
+				04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */,
+				04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */,
+				040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */,
+				040F53361FB8C9BB00726B99 /* BallRunViewController.swift */,
+				040F53381FB8C9C200726B99 /* BallOutViewController.swift */,
+			);
+			path = Scoresheet;
+			sourceTree = "<group>";
+		};
 		043AC2AE1F9625ED00DC9982 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +231,7 @@
 			children = (
 				0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */,
 				04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */,
+				040F532F1FB8C94C00726B99 /* Scoresheet */,
 			);
 			path = Scoring;
 			sourceTree = "<group>";
@@ -213,6 +240,8 @@
 			isa = PBXGroup;
 			children = (
 				04793DAF1F97A3BC00721BF5 /* Alerts.swift */,
+				043B11BD1FB6FC98004AFACF /* Game.swift */,
+				040F532B1FB8C06B00726B99 /* Ball.swift */,
 				046727A11F9CA80A00FC885D /* Player.swift */,
 				046727A31F9CA8F400FC885D /* User.swift */,
 			);
@@ -565,19 +594,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				040F53371FB8C9BB00726B99 /* BallRunViewController.swift in Sources */,
 				04C308181FB6F5B400F501C8 /* ScoreHubViewController.swift in Sources */,
+				040F532E1FB8C93700726B99 /* BallSelectTypeViewController.swift in Sources */,
 				04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */,
 				043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */,
 				04793DB01F97A3BC00721BF5 /* Alerts.swift in Sources */,
 				0424521F1FB39DE5004933EC /* DetailsViewController.swift in Sources */,
 				0479F3761FB6782000717A88 /* ScoreBoardViewController.swift in Sources */,
+				040F53391FB8C9C200726B99 /* BallOutViewController.swift in Sources */,
 				04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */,
 				043AC2F01F96B9E700DC9982 /* AccountViewController.swift in Sources */,
 				04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */,
+				04C3081D1FB6F88B00F501C8 /* ScoreSheetViewController.swift in Sources */,
+				04C3081F1FB6FA5900F501C8 /* GameSetupViewController.swift in Sources */,
 				04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */,
 				046727A21F9CA80A00FC885D /* Player.swift in Sources */,
 				043AC2BB1F9625ED00DC9982 /* AppDelegate.swift in Sources */,
 				046727A41F9CA8F400FC885D /* User.swift in Sources */,
+				043B11BE1FB6FC98004AFACF /* Game.swift in Sources */,
+				040F532C1FB8C06B00726B99 /* Ball.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
