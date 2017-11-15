@@ -24,7 +24,6 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var oversTextField: UITextField!
 
-    @IBOutlet weak var saveButton: UIBarButtonItem!
     
 
     override func viewDidLoad()
@@ -54,11 +53,12 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
         
         gameDataArray.append(newGame)
         
-        guard let button = sender as? UIBarButtonItem, button == saveButton else
+        /*guard let button = sender as? UIBarButtonItem, button == saveButton else
         {
             print("Save button was not pressed")
             return
         }
+ */
     }
     
     //MARK: - UITextFieldDelegate
@@ -66,7 +66,6 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
         // Disable the Save button while editing.
-        saveButton.isEnabled = false
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
@@ -96,7 +95,6 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
         // Disable the Save button if the text field is empty.
         let gameIDText = gameIDTextField.text ?? ""
         
-        saveButton.isEnabled = !gameIDText.isEmpty
 
     }
 

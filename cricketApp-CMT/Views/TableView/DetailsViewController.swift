@@ -13,13 +13,12 @@ import FirebaseDatabase
 class DetailsViewController: UIViewController {
     
     //MARK: - Properties
-    var indexPath: Int? = 0
-    
     var playerName: String? = ""
 
     
     //Firebase
     var ref: DatabaseReference?
+    var handle: DatabaseHandle?
     
 
     //MARK: - IBOutlets
@@ -36,19 +35,45 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var playerOutsMethod: UILabel!
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
   
         //Firebase Initialization
         ref = Database.database().reference()
         
-        print(indexPath)
-        print(playerName)
+        //Database References
+        let metaRef = ref?.child("players").child(playerName!).child("meta")
+        let statsRef = ref?.child("players").child(playerName!).child("stats")
         
         
+        
+        // Setup Firebase Database Listener
+        handle = metaRef?.observe(DataEventType.value, with: { (snapshot) in
+            
+            //Load player metadata
+            let metaDict = snapshot.value as? [String : AnyObject] ?? [:]
+            
+            self.playerBlockLabel.text = (metaDict["block"] as! String)
+            self.playerNameLabel.text = (metaDict["playername"] as! String)
+            
+        })
+        
+        //Setup Firebase Database Listener
+        handle = statsRef?.observe(DataEventType.value, with: {(snapshot) in
+            
+            //Load player stats data
+            let statsDict = snapshot.value as? [String: AnyObject] ?? [:]
+            
+            print(statsDict)
+            
+            self.playerFacedLabel.text = (statsDict["faced"] as! String)
+            self.playerRunsLabel.text = (statsDict["runs"] as! String)
+            self.playerOutsMethod.text = (statsDict["outmethod"] as! String)
+            self.playerStatus.text = (statsDict["status"] as! String)
+            
+        })
+
     }
 
-
 }
+

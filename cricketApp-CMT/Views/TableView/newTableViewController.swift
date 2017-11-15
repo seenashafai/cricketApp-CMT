@@ -70,8 +70,6 @@ class newTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         playerSelected = nameArray[indexPath.row]
-        print(playerSelected)
-        
         self.performSegue(withIdentifier: "showDetail", sender: self)
         
     }
@@ -80,7 +78,7 @@ class newTableViewController: UITableViewController {
     {
         
       
-        var cell = UITableViewCell()
+        let cell = UITableViewCell()
         let player = nameArray[indexPath.row]
         cell.textLabel?.text = player
         
@@ -97,10 +95,7 @@ class newTableViewController: UITableViewController {
     {
         if segue.identifier == "showDetail"
         {
-            print(playerSelected, "hello")
-            print("processing segue")
             let destVC = segue.destination as! DetailsViewController
-            print(playerSelected)
             destVC.playerName = playerSelected
   
 
