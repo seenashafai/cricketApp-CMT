@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationItem.setHidesBackButton(true, animated: true)
 
     }
     

@@ -15,27 +15,21 @@ class DetailsViewController: UIViewController {
     //MARK: - Properties
     var playerName: String? = ""
 
-    
     //Firebase
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
     
-
     //MARK: - IBOutlets
     @IBOutlet weak var playerNameLabel: UILabel!
-    
     @IBOutlet weak var playerBlockLabel: UILabel!
-    
     @IBOutlet weak var playerRunsLabel: UILabel!
-    
     @IBOutlet weak var playerFacedLabel: UILabel!
-    
     @IBOutlet weak var playerStatus: UILabel!
-    
     @IBOutlet weak var playerOutsMethod: UILabel!
     
     
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
   
         //Firebase Initialization
@@ -45,9 +39,7 @@ class DetailsViewController: UIViewController {
         let metaRef = ref?.child("players").child(playerName!).child("meta")
         let statsRef = ref?.child("players").child(playerName!).child("stats")
         
-        
-        
-        // Setup Firebase Database Listener
+        // Setup Firebase MetaData Listener
         handle = metaRef?.observe(DataEventType.value, with: { (snapshot) in
             
             //Load player metadata
@@ -55,16 +47,13 @@ class DetailsViewController: UIViewController {
             
             self.playerBlockLabel.text = (metaDict["block"] as! String)
             self.playerNameLabel.text = (metaDict["playername"] as! String)
-            
         })
         
-        //Setup Firebase Database Listener
+        //Setup Firebase StatsData Listener
         handle = statsRef?.observe(DataEventType.value, with: {(snapshot) in
             
             //Load player stats data
             let statsDict = snapshot.value as? [String: AnyObject] ?? [:]
-            
-            print(statsDict)
             
             self.playerFacedLabel.text = (statsDict["faced"] as! String)
             self.playerRunsLabel.text = (statsDict["runs"] as! String)
@@ -72,7 +61,6 @@ class DetailsViewController: UIViewController {
             self.playerStatus.text = (statsDict["status"] as! String)
             
         })
-
     }
 
 }

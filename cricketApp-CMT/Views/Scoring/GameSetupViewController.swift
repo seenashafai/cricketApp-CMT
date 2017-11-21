@@ -7,33 +7,36 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class GameSetupViewController: UIViewController, UITextFieldDelegate {
     
-    var gameDataArray = [Game]()
+    //MARK: - Properties
     var game: Game?
     
-    var gameID: String = ""
-    var innings: Int = 0
-    var overs: Int = 0
-    var newGame = Game()
+    //MARK: - Firebase
+    var ref: DatabaseReference?
     
+    //MARK: -  IBOutlets
     @IBOutlet weak var gameIDTextField: UITextField!
-    
     @IBOutlet weak var inningsTextField: UITextField!
-    
     @IBOutlet weak var oversTextField: UITextField!
-
     
-
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
+        _ = gameIDTextField
+        
+        //Firebase
+        ref = Database.database().reference()
+
         // Handle the text field’s user input through delegate callbacks.
         gameIDTextField.delegate = self
         
-        self.gameIDTextField.text = gameID
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
@@ -46,20 +49,14 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     {
         super.prepare(for: segue, sender: sender)
         
-        let newGame = Game()
-        newGame.GameMeta.gameID = gameID
-        newGame.GameStats.innings = innings
-        newGame.GameStats.overs = overs
+        let gameDict = ["gameID": gameIDTextField.text, "innings": Int(inningsTextField.text!), "overs": Int(oversTextField.text!)] as [String : Any]
         
-        gameDataArray.append(newGame)
-        
-        /*guard let button = sender as? UIBarButtonItem, button == saveButton else
-        {
-            print("Save button was not pressed")
-            return
-        }
- */
+        ref?.child("games").child(gameIDTextField.text!).setValue(gameDict)
+        ref?.child("currentSession").setValue(gameDict)
     }
+
+    @IBOutlet weak var navBar: UINavigationBar!
+    
     
     //MARK: - UITextFieldDelegate
     
@@ -72,31 +69,45 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     {
         // Hide the keyboard.
         gameIDTextField.resignFirstResponder()
-        inningsTextField.resignFirstResponder()
-        oversTextField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField)
     {
         updateSaveButtonState()
-        navigationItem.title = gameIDTextField.text
+        navBar.topItem?.title = gameIDTextField.text
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    //Dismiss keyboard on touch away
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        updateSaveButtonState()
+        inningsTextField.resignFirstResponder()
+        oversTextField.resignFirstResponder()
+
     }
+
     
     //MARK: Private Methods
     
     private func updateSaveButtonState()
     {
         // Disable the Save button if the text field is empty.
-        let gameIDText = gameIDTextField.text ?? ""
+        let gameIDtext = gameIDTextField.text ?? ""
+        let inningsText = inningsTextField.text ?? ""
+        let oversText = oversTextField.text ?? ""
+
+        if gameIDtext.isEmpty || inningsText.isEmpty || oversText.isEmpty
+        {
+                saveButton.isEnabled = false
+        }
+        else {
+            saveButton.isEnabled = true
+
+            }
+    }
         
 
-    }
 
    
 }

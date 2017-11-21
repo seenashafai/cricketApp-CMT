@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04085B081FBCFBF800376F83 /* CreateGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04085B071FBCFBF800376F83 /* CreateGameViewController.swift */; };
+		04085B0A1FBCFD1400376F83 /* GameHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04085B091FBCFD1400376F83 /* GameHubViewController.swift */; };
 		040F532C1FB8C06B00726B99 /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F532B1FB8C06B00726B99 /* Ball.swift */; };
 		040F532E1FB8C93700726B99 /* BallSelectTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */; };
 		040F53371FB8C9BB00726B99 /* BallRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F53361FB8C9BB00726B99 /* BallRunViewController.swift */; };
@@ -30,7 +32,6 @@
 		04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191001F9A5A1E00BD100E /* newTableViewController.swift */; };
 		04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */; };
 		04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */; };
-		04C308181FB6F5B400F501C8 /* ScoreHubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */; };
 		04C3081D1FB6F88B00F501C8 /* ScoreSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */; };
 		04C3081F1FB6FA5900F501C8 /* GameSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */; };
 		AC8EF75ECD9F09D1B0E30DED /* Pods_cricketApp_CMTTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805C522553890E4D7D02AEDE /* Pods_cricketApp_CMTTests.framework */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04085B071FBCFBF800376F83 /* CreateGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameViewController.swift; sourceTree = "<group>"; };
+		04085B091FBCFD1400376F83 /* GameHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHubViewController.swift; sourceTree = "<group>"; };
 		040F532B1FB8C06B00726B99 /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallSelectTypeViewController.swift; sourceTree = "<group>"; };
 		040F53361FB8C9BB00726B99 /* BallRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallRunViewController.swift; sourceTree = "<group>"; };
@@ -86,7 +89,6 @@
 		04B191001F9A5A1E00BD100E /* newTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTableViewController.swift; sourceTree = "<group>"; };
 		04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
-		04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreHubViewController.swift; sourceTree = "<group>"; };
 		04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreSheetViewController.swift; sourceTree = "<group>"; };
 		04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetupViewController.swift; sourceTree = "<group>"; };
 		47CB15894867EEFD924A9FCC /* Pods-cricketApp-CMTUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cricketApp-CMTUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-cricketApp-CMTUITests/Pods-cricketApp-CMTUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				04C3081C1FB6F88B00F501C8 /* ScoreSheetViewController.swift */,
-				04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */,
 				040F532D1FB8C93700726B99 /* BallSelectTypeViewController.swift */,
 				040F53361FB8C9BB00726B99 /* BallRunViewController.swift */,
 				040F53381FB8C9C200726B99 /* BallOutViewController.swift */,
@@ -230,7 +231,9 @@
 			isa = PBXGroup;
 			children = (
 				0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */,
-				04C308171FB6F5B400F501C8 /* ScoreHubViewController.swift */,
+				04085B071FBCFBF800376F83 /* CreateGameViewController.swift */,
+				04085B091FBCFD1400376F83 /* GameHubViewController.swift */,
+				04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */,
 				040F532F1FB8C94C00726B99 /* Scoresheet */,
 			);
 			path = Scoring;
@@ -443,6 +446,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-cricketApp-CMT/Pods-cricketApp-CMT-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -450,6 +454,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -595,7 +600,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				040F53371FB8C9BB00726B99 /* BallRunViewController.swift in Sources */,
-				04C308181FB6F5B400F501C8 /* ScoreHubViewController.swift in Sources */,
 				040F532E1FB8C93700726B99 /* BallSelectTypeViewController.swift in Sources */,
 				04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */,
 				043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */,
@@ -609,9 +613,11 @@
 				04C3081D1FB6F88B00F501C8 /* ScoreSheetViewController.swift in Sources */,
 				04C3081F1FB6FA5900F501C8 /* GameSetupViewController.swift in Sources */,
 				04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */,
+				04085B081FBCFBF800376F83 /* CreateGameViewController.swift in Sources */,
 				046727A21F9CA80A00FC885D /* Player.swift in Sources */,
 				043AC2BB1F9625ED00DC9982 /* AppDelegate.swift in Sources */,
 				046727A41F9CA8F400FC885D /* User.swift in Sources */,
+				04085B0A1FBCFD1400376F83 /* GameHubViewController.swift in Sources */,
 				043B11BE1FB6FC98004AFACF /* Game.swift in Sources */,
 				040F532C1FB8C06B00726B99 /* Ball.swift in Sources */,
 			);

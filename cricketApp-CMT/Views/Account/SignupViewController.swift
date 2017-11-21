@@ -34,7 +34,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 if user != nil
                 {
                     // Sign up Successful
-                    self.present(self.alerts.createAlert(), animated: true, completion: nil)
+                    self.present(self.alerts.signupAlert(), animated: true, completion: nil)
                     print("Register successful")
                 }
                 else

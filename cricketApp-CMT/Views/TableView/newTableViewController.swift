@@ -24,7 +24,7 @@ class newTableViewController: UITableViewController {
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -71,19 +71,15 @@ class newTableViewController: UITableViewController {
     {
         playerSelected = nameArray[indexPath.row]
         self.performSegue(withIdentifier: "showDetail", sender: self)
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
-      
         let cell = UITableViewCell()
         let player = nameArray[indexPath.row]
         cell.textLabel?.text = player
         
         return cell
-        
     }
     
     
@@ -97,13 +93,8 @@ class newTableViewController: UITableViewController {
         {
             let destVC = segue.destination as! DetailsViewController
             destVC.playerName = playerSelected
-  
-
             
         }
-           
     }
-    
 
-    
 }

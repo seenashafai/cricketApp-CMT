@@ -22,23 +22,18 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     
     //MARK: - IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var blockTextField: UITextField!
-    
     @IBOutlet weak var facedTextField: UITextField!
-    
     @IBOutlet weak var runsTextField: UITextField!
-    
     @IBOutlet weak var statusTextField: UITextField!
-    
     @IBOutlet weak var playerOutMethod: UITextField!
-    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     
     //MARK: UIBarButton Items
     
-    @IBAction func cancel(_ sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem)
+    {
         dismiss(animated: true, completion: nil)
     }
     
@@ -54,12 +49,8 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
 
-
         // Enable save button only when text field is validated
         updateSaveButtonState()
-        
-
-        
     }
     
     //MARK: - UITextFieldDelegate
@@ -107,8 +98,10 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
 
     
 
-    //MARK: Private Methods
     
+    //MARK: - Validation
+    
+    //Presence Check
     private func updateSaveButtonState()
     {
         // Disable the Save button if the text field is empty.

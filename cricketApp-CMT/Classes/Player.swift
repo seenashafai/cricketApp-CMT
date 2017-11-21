@@ -97,25 +97,23 @@ enum Block: String, CustomStringConvertible {
 
 
 
-enum Out: String, CustomStringConvertible {
+enum Out: Int, CustomStringConvertible {
     
-    case notOut
-    case caught
-    case runout
-    case bowled
-    case lbw
-    case stumped
-    case obstructField
-    case handledBall
-    case hitWickets
-    case hitTwice
-    case timeout
+    case caught = 0
+    case runout = 1
+    case bowled = 2
+    case lbw = 3
+    case stumped = 4
+    case obstructField = 5
+    case handledBall = 6
+    case hitWickets = 7
+    case hitTwice = 8
+    case timeout = 9
+    static var count: Int { return Out.timeout.hashValue + 1}
     
     var description: String {
         get {
             switch (self) {
-                case .notOut:
-                    return "not out"
                 case .caught:
                     return "caught"
                 case .runout:
@@ -136,6 +134,8 @@ enum Out: String, CustomStringConvertible {
                     return "hit twice"
                 case .timeout:
                     return "timed out"
+                
+            default: return ""
             }
         }
     }
@@ -153,7 +153,7 @@ class PlayerClass
         meta.playerName = ""
         stats.faced = 0
         stats.runs = 0
-        stats.outMethod = .notOut
+        stats.outMethod = .caught
         stats.status = .notOut
     }
 }

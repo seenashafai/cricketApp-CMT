@@ -30,7 +30,7 @@ class Game {
         GameStats.innings = 0
         GameStats.overs = 0
     }
-    
-   
 
 }
+
+
