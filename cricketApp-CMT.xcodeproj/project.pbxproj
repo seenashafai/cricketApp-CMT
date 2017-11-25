@@ -232,8 +232,8 @@
 			children = (
 				0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */,
 				04085B071FBCFBF800376F83 /* CreateGameViewController.swift */,
-				04085B091FBCFD1400376F83 /* GameHubViewController.swift */,
 				04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */,
+				04085B091FBCFD1400376F83 /* GameHubViewController.swift */,
 				040F532F1FB8C94C00726B99 /* Scoresheet */,
 			);
 			path = Scoring;

@@ -23,6 +23,10 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inningsTextField: UITextField!
     @IBOutlet weak var oversTextField: UITextField!
     
+    @IBOutlet weak var homeTeamTextField: UITextField!
+    @IBOutlet weak var awayTeamTextField: UITextField!
+    
+    
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     override func viewDidLoad()
@@ -49,7 +53,7 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     {
         super.prepare(for: segue, sender: sender)
         
-        let gameDict = ["gameID": gameIDTextField.text, "innings": Int(inningsTextField.text!), "overs": Int(oversTextField.text!)] as [String : Any]
+        let gameDict = ["gameID": gameIDTextField.text, "innings": Int(inningsTextField.text!), "overs": Int(oversTextField.text!), "homeTeam": homeTeamTextField.text, "awayTeam": awayTeamTextField.text] as [String : Any]
         
         ref?.child("games").child(gameIDTextField.text!).setValue(gameDict)
         ref?.child("currentSession").setValue(gameDict)

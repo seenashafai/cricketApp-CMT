@@ -20,6 +20,8 @@ class ScoreSheetViewController: UIViewController {
     var ballNumber: Int? = 0
     var maxInnings: Int? = 0
     var maxOvers: Int? = 0
+    var battingTeam: String? = ""
+    var bowlingTeam: String? = ""
 
     var alerts = alertClass()
     
@@ -151,7 +153,7 @@ class ScoreSheetViewController: UIViewController {
         
         //Add items to database
         ref?.child("currentSession").child("currentInnings").setValue(inningsCounter)
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).setValue("innings"+(String(inningsCounter)))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).setValue("innings"+(String(inningsCounter)))
     }
     
     @IBAction func newOver(_ sender: Any) {
@@ -181,14 +183,14 @@ class ScoreSheetViewController: UIViewController {
         ball6Outlet.isHidden = false
         
         ref?.child("currentSession").child("currentOver").setValue(oversCounter)
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball1").setValue(String(0))
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball2").setValue(String(0))
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball3").setValue(String(0))
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball4").setValue(String(0))
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball5").setValue(String(0))
-        ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball6").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball1").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball2").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball3").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball4").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball5").setValue(String(0))
+        ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter))).child("ball6").setValue(String(0))
 
-        let ballScoresRef = ref?.child("games").child(gameID).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter)))
+        let ballScoresRef = ref?.child("games").child(gameID).child(battingTeam!).child("stats").child("innings"+(String(inningsCounter))).child("over"+(String(oversCounter)))
 
         // Setup Firebase Database Listener
         handle = ballScoresRef?.observe(DataEventType.value, with: { (snapshot) in
@@ -248,6 +250,8 @@ class ScoreSheetViewController: UIViewController {
             //Retrieve Game ID
             let setupDict = snapshot.value as? [String : AnyObject] ?? [:]
             self.gameID = (setupDict["gameID"] as! String)
+            self.battingTeam = (setupDict["battingTeam"] as! String)
+            self.bowlingTeam = (setupDict["bowlingTeam"] as! String)
             self.maxInnings = (setupDict["innings"] as! Int)
             self.maxOvers = (setupDict["overs"] as! Int)
             print(self.gameID)

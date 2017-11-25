@@ -7,7 +7,8 @@
 //
 
 import XCTest
-import Firebase
+import FirebaseCore
+import FirebaseAuth
 @testable import cricketApp_CMT
 
 class cricketApp_CMTTests: XCTestCase {
