@@ -29,6 +29,7 @@
 		04793DAA1F978C0800721BF5 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04793DA91F978C0800721BF5 /* SignupViewController.swift */; };
 		04793DB01F97A3BC00721BF5 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04793DAF1F97A3BC00721BF5 /* Alerts.swift */; };
 		0479F3761FB6782000717A88 /* ScoreBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */; };
+		04853B591FCA386E00458CEA /* SelectBatterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04853B581FCA386E00458CEA /* SelectBatterViewController.swift */; };
 		04B191011F9A5A1E00BD100E /* newTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191001F9A5A1E00BD100E /* newTableViewController.swift */; };
 		04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */; };
 		04B191071F9A648E00BD100E /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */; };
@@ -86,6 +87,7 @@
 		04793DA91F978C0800721BF5 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		04793DAF1F97A3BC00721BF5 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreBoardViewController.swift; sourceTree = "<group>"; };
+		04853B581FCA386E00458CEA /* SelectBatterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBatterViewController.swift; sourceTree = "<group>"; };
 		04B191001F9A5A1E00BD100E /* newTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newTableViewController.swift; sourceTree = "<group>"; };
 		04B191021F9A5A2A00BD100E /* AddPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPlayerViewController.swift; sourceTree = "<group>"; };
 		04B191061F9A648E00BD100E /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				0479F3751FB6782000717A88 /* ScoreBoardViewController.swift */,
 				04085B071FBCFBF800376F83 /* CreateGameViewController.swift */,
 				04C3081E1FB6FA5900F501C8 /* GameSetupViewController.swift */,
+				04853B581FCA386E00458CEA /* SelectBatterViewController.swift */,
 				04085B091FBCFD1400376F83 /* GameHubViewController.swift */,
 				040F532F1FB8C94C00726B99 /* Scoresheet */,
 			);
@@ -605,6 +608,7 @@
 				043AC2BD1F9625ED00DC9982 /* LoginViewController.swift in Sources */,
 				04793DB01F97A3BC00721BF5 /* Alerts.swift in Sources */,
 				0424521F1FB39DE5004933EC /* DetailsViewController.swift in Sources */,
+				04853B591FCA386E00458CEA /* SelectBatterViewController.swift in Sources */,
 				0479F3761FB6782000717A88 /* ScoreBoardViewController.swift in Sources */,
 				040F53391FB8C9C200726B99 /* BallOutViewController.swift in Sources */,
 				04B191031F9A5A2A00BD100E /* AddPlayerViewController.swift in Sources */,

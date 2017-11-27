@@ -16,13 +16,13 @@ class BallOutViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var player: PlayerClass?
     var outMethod: Out?
     
-    var name: String? = "gareth"
-    
     
     var gameID: String? = ""
     var inningsCounter: Int? = 0
     var oversCounter: Int? = 0
     var ballsCounter: Int? = 0
+    var name: String? = "gareth"
+    var battingTeam: String? = ""
     
     //Firebase
     var ref: DatabaseReference?
@@ -32,9 +32,9 @@ class BallOutViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var pickerView: UIPickerView!
     @IBAction func saveButton(_ sender: Any)
     {
-        let runsRef = ref?.child("games").child(gameID!).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("ball" + String(describing: ballsCounter!))
+        let runsRef = ref?.child("games").child(gameID!).child(battingTeam!).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("ball" + String(describing: ballsCounter!))
         
-        let outRef = ref?.child("games").child(gameID!).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("details" + String(describing: ballsCounter!))
+        let outRef = ref?.child("games").child(gameID!).child(battingTeam!).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("details" + String(describing: ballsCounter!))
         
 
         let outDict = ["playerOutName": name!, "outMethod": outMethod?.description as Any] as [String : AnyObject]
@@ -83,6 +83,7 @@ class BallOutViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let gameDetailsDict = snapshot.value as? [String : AnyObject] ?? [:]
             print(gameDetailsDict)
             self.gameID = (gameDetailsDict["gameID"] as! String)
+            self.battingTeam = (gameDetailsDict["battingTeam"] as! String)
             self.inningsCounter = (gameDetailsDict["currentInnings"] as! Int)
             self.oversCounter = (gameDetailsDict["currentOver"] as! Int)
             self.ballsCounter = (gameDetailsDict["currentBall"] as! Int)

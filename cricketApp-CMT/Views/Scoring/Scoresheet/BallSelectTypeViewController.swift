@@ -23,6 +23,7 @@ class BallSelectTypeViewController: UIViewController {
     var inningsCounter: Int? = 0
     var oversCounter: Int? = 0
     var ballsCounter: Int? = 0
+    var battingTeam: String? = ""
     
     //Firebase
     var ref: DatabaseReference?
@@ -75,9 +76,9 @@ class BallSelectTypeViewController: UIViewController {
     
     @IBAction func dotClicked(_ sender: Any) {
         
-        let runsRef = ref?.child("games").child(gameID!).child("stats").child("innings"+(String(describing: currentInnings!))).child("over"+(String(describing: currentOver!))).child("ball" + String(describing: currentBall!))
+        let runsRef = ref?.child("games").child(gameID!).child(battingTeam!).child("stats").child("innings"+(String(describing: currentInnings!))).child("over"+(String(describing: currentOver!))).child("ball" + String(describing: currentBall!))
         
-        runsRef?.setValue(0)
+        runsRef?.setValue(String(0))
     
         dotRunsLabel.text = String(0)
         dotRunsLabel.isHidden = false
@@ -117,6 +118,7 @@ class BallSelectTypeViewController: UIViewController {
             print(gameIDDict)
             
             self.gameID = (gameIDDict["gameID"] as! String)
+            self.battingTeam = (gameIDDict["battingTeam"] as! String)
             self.currentInnings = (gameIDDict["currentInnings"] as! Int)
             self.currentOver = (gameIDDict["currentOver"] as! Int)
             self.currentBall = (gameIDDict["currentBall"] as! Int)
@@ -126,8 +128,6 @@ class BallSelectTypeViewController: UIViewController {
             print(self.currentBall!)
             
         })
-        
-      
     }
     
     override func didReceiveMemoryWarning() {

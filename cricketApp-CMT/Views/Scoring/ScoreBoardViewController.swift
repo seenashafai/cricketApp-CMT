@@ -16,6 +16,10 @@ class ScoreBoardViewController: UIViewController {
     var gameID: String? = ""
     var maxInnings: Int? = 0
     var maxOvers: Int? = 0
+    var homeTeam: String? = ""
+    var homeTeamScore: Int? = 0
+    var awayTeam: String? = ""
+    var awayTeamScore: Int? = 0
     
     //Firebase
     var ref: DatabaseReference?
@@ -41,17 +45,16 @@ class ScoreBoardViewController: UIViewController {
         //Firebase
         ref = Database.database().reference()
         
-        let gameIDRef = ref?.child("currentSession")
+        let sessionRef = ref?.child("currentSession")
         
         // Setup Firebase Game ID Listener
-        handle = gameIDRef?.observe(DataEventType.value, with: { (snapshot) in
+        handle = sessionRef?.observe(DataEventType.value, with: { (snapshot) in
             
             //Retrieve Game ID
             let setupDict = snapshot.value as? [String : AnyObject] ?? [:]
             self.gameID = (setupDict["gameID"] as! String)
-            self.maxInnings = (setupDict["innings"] as! Int)
-            self.maxOvers = (setupDict["overs"] as! Int)
-            print(self.gameID)
+            self.retrieveGameStats()
+            
         })
         
         //Hide back button on Navigation Bar
@@ -63,5 +66,25 @@ class ScoreBoardViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    private func retrieveGameStats()
+    {
+        print("retrieving stats...")
+        let gameIDRef = ref?.child(gameID!)
+        
+        // Setup Firebase Game ID Listener
+        handle = gameIDRef?.observe(DataEventType.value, with: { (snapshot) in
+            
+            //Retrieve Game ID
+            let gameStatsDict = snapshot.value as? [String : AnyObject] ?? [:]
+            print(gameStatsDict)
+            self.awayTeam = (gameStatsDict["awayTeam"] as! String)
+            self.homeTeam = (gameStatsDict["homeTeam"] as! String)
+            self.homeTeam = (gameStatsDict["homeTeam"] as! String)
+
+            
+            self.retrieveGameStats()
+            
+        })
+    }
 
 }

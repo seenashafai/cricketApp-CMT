@@ -13,6 +13,8 @@ import FirebaseDatabase
 class ScoreSheetViewController: UIViewController {
     
     //MARK: - Properties
+    var alerts = alertClass()
+
     var gameID: String = ""
     var inningsCounter: Int = 0
     var oversCounter: Int = 0
@@ -22,39 +24,17 @@ class ScoreSheetViewController: UIViewController {
     var maxOvers: Int? = 0
     var battingTeam: String? = ""
     var bowlingTeam: String? = ""
-
-    var alerts = alertClass()
+    var playerCount: Int? = 0
     
     //Firebase
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
     
     //MARK: - IBOutlets
-    
     @IBOutlet weak var completedView: UIView!
-    
     @IBOutlet weak var inningsFallbackOutlet: UIButton!
-    @IBAction func inningsFallback(_ sender: Any)
-    {
-        self.present(self.alerts.maxInningsAlert(), animated: true, completion: nil)
-
-        print("produce alert")
-    }
-    
-    
     @IBOutlet weak var oversFallBackOutlet: UIButton!
-    @IBAction func oversFallBack(_ sender: Any)
-    {
-        self.present(self.alerts.maxOversAlert(), animated: true, completion: nil)
-        print("produce alert")
-    }
     @IBOutlet weak var endGameOutlet: UIButton!
-    @IBAction func endGame(_ sender: Any)
-    {
-        ballView.isHidden = true
-        completedView.isHidden = false
-    }
-    
     
     //Ball Score Labels
     @IBOutlet weak var ball1Score: UILabel!
@@ -78,43 +58,66 @@ class ScoreSheetViewController: UIViewController {
     //Overs/Innings labels
     @IBOutlet weak var overNumberLabel: UILabel!
     @IBOutlet weak var inningsNumberLabel: UILabel!
-    
-    
+
     //MARK: - IBActions
+    @IBAction func inningsFallback(_ sender: Any)
+    {
+        self.present(self.alerts.maxInningsAlert(), animated: true, completion: nil)
+
+        print("produce alert")
+    }
+    
+    @IBAction func oversFallBack(_ sender: Any)
+    {
+        self.present(self.alerts.maxOversAlert(), animated: true, completion: nil)
+        print("produce alert")
+    }
+    
+    @IBAction func endGame(_ sender: Any)
+    {
+        ballView.isHidden = true
+        completedView.isHidden = false
+    }
     
     //Ball actions
-    @IBAction func ball1Action(_ sender: Any) {
+    @IBAction func ball1Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 1
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
     }
     
 
-    @IBAction func ball2Action(_ sender: Any) {
+    @IBAction func ball2Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 2
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
     }
     
-    @IBAction func ball3Action(_ sender: Any) {
+    @IBAction func ball3Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 3
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
     }
     
-    @IBAction func ball4Action(_ sender: Any) {
+    @IBAction func ball4Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 4
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
     }
     
-    @IBAction func ball5Action(_ sender: Any) {
+    @IBAction func ball5Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 5
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
     }
     
-    @IBAction func ball6Action(_ sender: Any) {
+    @IBAction func ball6Action(_ sender: Any)
+    {
         ballIndex = ballIndex! + 1
         ballNumber = 6
         ref?.child("currentSession").child("currentBall").setValue(ballNumber)
@@ -124,6 +127,10 @@ class ScoreSheetViewController: UIViewController {
     @IBOutlet weak var newOverOutlet: UIButton!
     @IBAction func beginInningsButton(_ sender: Any) {
         
+        if playerCount! < 11 {
+            self.present(self.alerts.playerCount(), animated: true, completion: nil)
+        }
+        inningsOutlet.setTitle("Next innings", for: .normal)
         inningsCounter = inningsCounter + 1
         oversCounter = 0
         inningsNumberLabel.text = ("Inning:" + String(inningsCounter) + "/" + String(describing: maxInnings!))
@@ -203,17 +210,14 @@ class ScoreSheetViewController: UIViewController {
             self.ball4Score.text = String(ballDict["ball4"] as! String)
             self.ball5Score.text = String(ballDict["ball5"] as! String)
             self.ball6Score.text = String(ballDict["ball6"] as! String)
-
-            print(ballDict)
-            
             
         })
-
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //MARK: - isHidden
 
@@ -254,11 +258,9 @@ class ScoreSheetViewController: UIViewController {
             self.bowlingTeam = (setupDict["bowlingTeam"] as! String)
             self.maxInnings = (setupDict["innings"] as! Int)
             self.maxOvers = (setupDict["overs"] as! Int)
+            self.playerCount = (setupDict["playerCount"] as! Int)
             print(self.gameID)
         })
-
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

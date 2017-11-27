@@ -18,6 +18,7 @@ class BallRunViewController: UIViewController {
     var inningsCounter: Int? = 0
     var oversCounter: Int? = 0
     var ballsCounter: Int? = 0
+    var battingTeam: String = ""
     
     var player: PlayerClass?
     
@@ -28,7 +29,7 @@ class BallRunViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         
         
-        let runsRef = ref?.child("games").child(gameID!).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("ball" + String(describing: ballsCounter!))
+        let runsRef = ref?.child("games").child(gameID!).child(battingTeam).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("ball" + String(describing: ballsCounter!))
         
         
         
@@ -82,6 +83,7 @@ class BallRunViewController: UIViewController {
             let gameDetailsDict = snapshot.value as? [String : AnyObject] ?? [:]
             print(gameDetailsDict)
             self.gameID = (gameDetailsDict["gameID"] as! String)
+            self.battingTeam = (gameDetailsDict["battingTeam"] as! String)
             self.inningsCounter = (gameDetailsDict["currentInnings"] as! Int)
             self.oversCounter = (gameDetailsDict["currentOver"] as! Int)
             self.ballsCounter = (gameDetailsDict["currentBall"] as! Int)

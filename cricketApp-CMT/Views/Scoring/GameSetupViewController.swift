@@ -22,7 +22,6 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var gameIDTextField: UITextField!
     @IBOutlet weak var inningsTextField: UITextField!
     @IBOutlet weak var oversTextField: UITextField!
-    
     @IBOutlet weak var homeTeamTextField: UITextField!
     @IBOutlet weak var awayTeamTextField: UITextField!
     
@@ -33,27 +32,22 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     {
         super.viewDidLoad()
         
-        _ = gameIDTextField
-        
         //Firebase
         ref = Database.database().reference()
 
         // Handle the text field’s user input through delegate callbacks.
         gameIDTextField.delegate = self
-        
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
  
-
-        // Do any additional setup after loading the view.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         super.prepare(for: segue, sender: sender)
         
-        let gameDict = ["gameID": gameIDTextField.text, "innings": Int(inningsTextField.text!), "overs": Int(oversTextField.text!), "homeTeam": homeTeamTextField.text, "awayTeam": awayTeamTextField.text] as [String : Any]
+        let gameDict = ["gameID": gameIDTextField.text, "innings": Int(inningsTextField.text!), "overs": Int(oversTextField.text!), "homeTeam": homeTeamTextField.text, "awayTeam": awayTeamTextField.text, "playerCount": 0] as [String : Any]
         
         ref?.child("games").child(gameIDTextField.text!).setValue(gameDict)
         ref?.child("currentSession").setValue(gameDict)
@@ -83,12 +77,11 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     }
 
     //Dismiss keyboard on touch away
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         updateSaveButtonState()
         inningsTextField.resignFirstResponder()
         oversTextField.resignFirstResponder()
-
     }
 
     
@@ -105,13 +98,10 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
         {
                 saveButton.isEnabled = false
         }
-        else {
+        else
+        {
             saveButton.isEnabled = true
-
-            }
+            
+        }
     }
-        
-
-
-   
 }

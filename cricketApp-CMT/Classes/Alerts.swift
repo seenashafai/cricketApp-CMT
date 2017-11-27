@@ -42,4 +42,29 @@ class alertClass: UIAlertController {
         return warningAlert
         
     }
+    
+    func battingTeamAlert() -> UIAlertController {
+        let warningAlert = UIAlertController(title: "Error", message: "Please select the team which will bat first", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Continue", style: .default) {(action) in
+            
+        }
+        warningAlert.addAction(action1)
+        present(warningAlert, animated: true, completion: nil)
+        return warningAlert
+        
+    }
+    
+    func playerCount() -> UIAlertController {
+        let warningAlert = UIAlertController(title: "Error", message: "You have not added any players to the team sheet. Press continue to proceed without keeping record of player statistics", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Continue", style: .destructive) {(action) in
+        }
+        let action2 = UIAlertAction(title: "Team sheet", style: .default) {(action) in
+            
+        }
+        warningAlert.addAction(action1)
+        warningAlert.addAction(action2)
+        present(warningAlert, animated: true, completion: nil)
+        return warningAlert
+        
+    }
 }

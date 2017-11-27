@@ -53,7 +53,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
    
 
     
-    //MARK: - Keyboard dismissals
+    //MARK: - UITextFieldDelegate
     
     //Dismiss keyboard on 'Done'
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

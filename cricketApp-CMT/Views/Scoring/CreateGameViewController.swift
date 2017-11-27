@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class CreateGameViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    //MARK: - Properties
+    
+    //Firebase
+    var ref: DatabaseReference?
+    
+   
+    @IBAction func newGame(_ sender: Any)
+    {
+        //Clear DB
+        ref?.setValue("null")
     }
-
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        ref = Database.database().reference()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -10,12 +10,10 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class GameHubViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class GameHubViewController: UIViewController {
     
-    
-    
-    var ref: DatabaseReference?
-    var handle: DatabaseHandle?
+    //MARK: - Properties
+    var alerts = alertClass()
     
     var gameID: String? = ""
     var homeTeam: String? = ""
@@ -24,73 +22,22 @@ class GameHubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var bowlingTeam: String? = ""
     var teamArray = [String]()
     
+    //Firebase
+    var ref: DatabaseReference?
+    var handle: DatabaseHandle?
+    
+    
+    //MARK: I IBOutlets
     @IBOutlet weak var welcomeTextField: UILabel!
     
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return teamArray.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        battingTeam = teamArray[row]
-        
-        let battingRef = ref?.child("currentSession").child("battingTeam")
-        
-        print(teamArray)
-        
-        
-        battingRef?.setValue(battingTeam)
-        
-        if battingTeam == teamArray[0]{
-            battingTeam = homeTeam
-            bowlingTeam = awayTeam
-            print("willy")
-        }
-        else {
-            battingTeam = awayTeam
-            bowlingTeam = homeTeam
-            print("bum")
-        }
-        
-        let bowlingRef = ref?.child("currentSession").child("bowlingTeam")
-        
-        bowlingRef?.setValue(bowlingTeam)
-
-        print(battingTeam)
-        print(bowlingTeam)
-    }
-
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return teamArray[row]
-    }
-    
-    
-    @IBOutlet weak var pickerView: UIPickerView!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        //Hide back button on Navigation bar
-        self.tabBarController?.navigationItem.hidesBackButton = true
-
-
-    }
-    
     override func viewDidLoad()
-    
     {
-        
-        print("poo")
         defineText()
         
         //Firebase
         ref = Database.database().reference()
         
+        //Create reference to Database location
         let gameIDRef = ref?.child("currentSession")
         
         // Setup Firebase Game ID Listener
@@ -102,7 +49,6 @@ class GameHubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.gameID = (setupDict["gameID"] as! String)
             self.homeTeam = (setupDict["homeTeam"] as! String)
             self.awayTeam = (setupDict["awayTeam"] as! String)
-            self.preparePickerView()
         })
 
     }
@@ -116,19 +62,10 @@ class GameHubViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         welcomeTextField.lineBreakMode = .byWordWrapping
         welcomeTextField.numberOfLines = 0
-        
-        let text = "Who will bat first?"
-        
+        let text = "Welcome"
         welcomeTextField.text = text
         
     }
-    
-    private func preparePickerView() {
-        
-        self.teamArray.append(self.homeTeam!)
-        self.teamArray.append(self.awayTeam!)
-        self.pickerView.reloadAllComponents()
-        
-    }
+
 
 }
