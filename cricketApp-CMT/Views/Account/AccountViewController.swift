@@ -12,29 +12,24 @@ import FirebaseAuth
 
 class secondViewController: UIViewController {
     
+    //MARK: - IBActions
+    
+    
+    //Logout Function
     @IBAction func logOut(_ sender: UIButton)
     {
         try! Auth.auth().signOut()
+        //Perform Segue back to Sign-in view
         performSegue(withIdentifier: "segue2", sender: self)
     }
     
 
-    
-    
-    
     //MARK: - View cycle
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        
+        //Print current user to console
         print(Auth.auth().currentUser?.email as Any)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    
 
 }

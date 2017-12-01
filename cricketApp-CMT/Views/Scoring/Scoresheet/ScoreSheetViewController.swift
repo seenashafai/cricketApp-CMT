@@ -25,6 +25,10 @@ class ScoreSheetViewController: UIViewController {
     var battingTeam: String? = ""
     var bowlingTeam: String? = ""
     var playerCount: Int? = 0
+    var playerIndex: Int? = 0
+    var batsman1: String? = ""
+    var batsman2: String? = ""
+    var word: String? = "players"
     
     //Firebase
     var ref: DatabaseReference?
@@ -127,9 +131,19 @@ class ScoreSheetViewController: UIViewController {
     @IBOutlet weak var newOverOutlet: UIButton!
     @IBAction func beginInningsButton(_ sender: Any) {
         
-        if playerCount! < 11 {
-            playerCountAlert()
-        }
+        prepareAlert()
+        playerIndex = playerIndex! + 1
+        let playerRef = ref?.child("playernames")
+
+        // Setup Firebase Game ID Listener
+        playerRef?.observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            //Retrieve Game ID
+            let playerDict = snapshot.value as? [String : AnyObject] ?? [:]
+            print(playerDict)
+
+
+        })
         inningsOutlet.setTitle("Next innings", for: .normal)
         inningsCounter = inningsCounter + 1
         oversCounter = 0
@@ -270,7 +284,7 @@ class ScoreSheetViewController: UIViewController {
     }
     
     func playerCountAlert() -> UIAlertController {
-        let warningAlert = UIAlertController(title: "Error", message: "You have not added any players to the team sheet. Press continue to proceed without keeping record of player statistics", preferredStyle: .alert)
+        let warningAlert = UIAlertController(title: "Error", message: "You have not added a full squad to the team sheet. Continue to keep scoring without a full squad, or go to the team sheet to add players", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Continue", style: .destructive) {(action) in
         }
         let action2 = UIAlertAction(title: "Team sheet", style: .default) {(action) in
@@ -283,8 +297,49 @@ class ScoreSheetViewController: UIViewController {
         
     }
     
-    func toTeamSheet() {
+    func playerCountWarningAlert() -> UIAlertController {
+        let warningAlert = UIAlertController(title: "Error", message: "You have only added " + String(describing: playerCount!) + " " +  word! + " to the squad. Continue to keep scoring without a full squad, or go to the team sheet to add players", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Continue", style: .destructive) {(action) in
+        }
+        let action2 = UIAlertAction(title: "Team sheet", style: .default) {(action) in
+            self.toTeamSheet()
+        }
+        warningAlert.addAction(action1)
+        warningAlert.addAction(action2)
+        present(warningAlert, animated: true, completion: nil)
+        return warningAlert
+        
+    }
+    
+    private func toTeamSheet() {
         tabBarController?.selectedIndex = 1
         print("toTeamSheet")
     }
+    
+    private func prepareAlert()
+    {
+        if playerCount! == 0
+        {
+            playerCountAlert()
+            
+        }
+        if playerCount! > 1
+        {
+            if playerCount! < 11
+            {
+                if playerCount! > 0
+                {
+                    print("frog")
+                    playerCountWarningAlert()
+                }
+            }
+        }
+        if playerCount == 1
+        {
+            word = "player"
+            playerCountWarningAlert()
+        }
+    }
+    
+
 }

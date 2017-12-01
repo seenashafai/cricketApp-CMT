@@ -11,10 +11,13 @@ import UIKit
 class PlayerTableViewCell: UITableViewCell {
 
     //MARK: Properties
+    
+    //MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
     
-    override func awakeFromNib() {
+    override func awakeFromNib()
+    {
         super.awakeFromNib()
         // Initialization code
     }

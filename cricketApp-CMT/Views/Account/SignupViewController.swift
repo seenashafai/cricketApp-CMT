@@ -52,13 +52,21 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-
+    
+    //Back Button
+    @IBAction func backButton(_ sender: Any)
+    {
+        //Dismiss view controller
+        dismiss(animated: true, completion: nil)
+    }
     
     
-    //MARK: - Keyboard dismissals
+    //MARK: - UITextFieldDelegate
+    //Keyboard Dismissals
     
     //Dismiss keyboard on 'done'
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
         inputEmail.resignFirstResponder()
         inputPassword.resignFirstResponder()
         confirmPassword.resignFirstResponder()
@@ -73,15 +81,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
 
     //MARK: - View cycle
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }

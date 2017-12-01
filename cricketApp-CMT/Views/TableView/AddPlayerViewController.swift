@@ -18,6 +18,8 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     var playerRuns: String? = "20"
     var playerStatus: Status? = .notOut
     var playerOutMethod: Out? = .timeOut
+    var index: Int? = 0
+    var battingOrder: Int? = 0
     
     
     //Firebase
@@ -26,6 +28,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     //MARK: - IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var blockTextField: UITextField!
+    @IBOutlet weak var battingNoTextField: UITextField!
     
     
     //UIBarButton Items
@@ -39,6 +42,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         ref?.child("players").child(nameTextField.text!).child("stats").setValue(playerStatsDict)
 
         ref?.child("playernames").childByAutoId().setValue(nameTextField.text)
+        ref?.child("battingOrder").child(battingNoTextField.text!).setValue(nameTextField.text)
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -53,6 +57,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
         blockTextField.delegate = self
+        battingNoTextField.delegate = self
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
@@ -88,6 +93,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         updateSaveButtonState()
         nameTextField.resignFirstResponder()
         blockTextField.resignFirstResponder()
+        battingNoTextField.resignFirstResponder()
     }
     
     //MARK: - Validation

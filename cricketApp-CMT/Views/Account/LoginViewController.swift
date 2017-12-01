@@ -18,14 +18,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var inputPassword: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBAction func tappedBackButon(_ sender: Any) {
-    }
-  
+    //MARK: - IBOutlets
     
-    
-    //MARK: - Login Function
+    //Login Function
     @IBAction func loginNow(_ sender: Any)
     {
+        //Presence check for text fields
         if inputEmail.text != "" || inputPassword.text != ""
         {
             //Firebase Authentication
@@ -33,7 +31,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 if user != nil
                 {
                     // Sign in Successful
-                    print("Sign in successful")
+                    //Perform Segue to next view
                     self.performSegue(withIdentifier: "segue", sender: self)
                 }
                 else
@@ -51,36 +49,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
    
-
-    
     //MARK: - UITextFieldDelegate
     
     //Dismiss keyboard on 'Done'
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
         inputEmail.resignFirstResponder()
         inputPassword.resignFirstResponder()
         return true
     }
     
     //Dismiss keyboard on touch away
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
         inputEmail.resignFirstResponder()
         inputPassword.resignFirstResponder()
     }
     
     //MARK: View cycle
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: true)
-
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

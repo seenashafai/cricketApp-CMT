@@ -17,23 +17,27 @@ class CreateGameViewController: UIViewController {
     //Firebase
     var ref: DatabaseReference?
     
+    //MARK: - IBActions
    
+    //New Game Button
     @IBAction func newGame(_ sender: Any)
     {
         //Clear DB
         ref?.setValue("null")
     }
     
+    //Back Button
+    @IBAction func backButton(_ sender: Any)
+    {
+        //Dismiss view controller
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        //Create Firebase Reference
         ref = Database.database().reference()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
 }

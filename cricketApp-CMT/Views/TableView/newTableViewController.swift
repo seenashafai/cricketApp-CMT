@@ -21,19 +21,16 @@ class newTableViewController: UITableViewController {
     var refHandle: DatabaseHandle?
 
 
-    //MARK: - UITableView
-    
+    //MARK: - UITableViewDelegate
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
     }
     
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return nameArray.count
     }
-    
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool
     {
@@ -64,7 +61,7 @@ class newTableViewController: UITableViewController {
         // Initialise Firebase Database
         ref = Database.database().reference()
         let playerRef = ref?.child("playernames")
-        
+
         // Setup Firebase Database Listener
         refHandle = playerRef?.observe(.childAdded, with: {(snapshot) in
             
@@ -78,7 +75,6 @@ class newTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
     }
-    
     
     override func viewDidAppear(_ animated: Bool)
     {

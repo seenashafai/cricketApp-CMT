@@ -28,14 +28,9 @@ class BallRunViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         
-        
         let runsRef = ref?.child("games").child(gameID!).child(battingTeam).child("stats").child("innings"+(String(describing: inningsCounter!))).child("over"+(String(describing: oversCounter!))).child("ball" + String(describing: ballsCounter!))
         
-        
-        
         runsRef?.setValue(String(runTextField.text!))
-
-
         navigationController?.popViewController(animated: true)
         
         
@@ -94,12 +89,4 @@ class BallRunViewController: UIViewController {
         
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-
 }
