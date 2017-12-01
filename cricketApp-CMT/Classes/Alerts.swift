@@ -12,6 +12,8 @@ import UIKit
 
 class alertClass: UIAlertController {
     
+    var VC: ScoreBoardViewController?
+    
     func signupAlert() -> UIAlertController {
         let successAlert = UIAlertController(title: "Registration Successful", message: "Please now login using your new credentials", preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Continue", style: .default) {(action) in
@@ -59,7 +61,7 @@ class alertClass: UIAlertController {
         let action1 = UIAlertAction(title: "Continue", style: .destructive) {(action) in
         }
         let action2 = UIAlertAction(title: "Team sheet", style: .default) {(action) in
-            
+            self.toTeamSheet()
         }
         warningAlert.addAction(action1)
         warningAlert.addAction(action2)
@@ -67,4 +69,10 @@ class alertClass: UIAlertController {
         return warningAlert
         
     }
+    
+    func toTeamSheet() {
+        VC?.tabBarController?.selectedIndex = 3
+        print("toTeamSheet")
+    }
+    
 }

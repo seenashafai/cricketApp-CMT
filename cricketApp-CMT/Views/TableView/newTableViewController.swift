@@ -93,6 +93,7 @@ class newTableViewController: UITableViewController {
     {
         if segue.identifier == "showDetail"
         {
+            print("playerselected")
             let destVC = segue.destination as! DetailsViewController
             destVC.playerName = playerSelected
         }

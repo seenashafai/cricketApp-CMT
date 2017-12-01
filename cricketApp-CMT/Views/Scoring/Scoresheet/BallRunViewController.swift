@@ -81,7 +81,6 @@ class BallRunViewController: UIViewController {
             
             //Retrieve Game Details
             let gameDetailsDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(gameDetailsDict)
             self.gameID = (gameDetailsDict["gameID"] as! String)
             self.battingTeam = (gameDetailsDict["battingTeam"] as! String)
             self.inningsCounter = (gameDetailsDict["currentInnings"] as! Int)

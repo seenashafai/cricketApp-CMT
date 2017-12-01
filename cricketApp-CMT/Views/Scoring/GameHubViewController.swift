@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-class GameHubViewController: UIViewController {
+class GameHubViewController: UIViewController, UITabBarControllerDelegate {
     
     //MARK: - Properties
     var alerts = alertClass()
@@ -26,6 +26,10 @@ class GameHubViewController: UIViewController {
     var ref: DatabaseReference?
     var handle: DatabaseHandle?
     
+    @IBAction func changeTab(_ sender: Any) {
+        tabBarController?.selectedIndex = 4
+        print("hello")
+    }
     
     //MARK: I IBOutlets
     @IBOutlet weak var welcomeTextField: UILabel!

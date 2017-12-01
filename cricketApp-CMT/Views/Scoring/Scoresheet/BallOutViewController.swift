@@ -66,7 +66,6 @@ class BallOutViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         outMethod = Out(rawValue: row)!
-        print(outMethod)
     }
 
     override func viewDidLoad() {
@@ -81,7 +80,6 @@ class BallOutViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             //Retrieve Game Details
             let gameDetailsDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(gameDetailsDict)
             self.gameID = (gameDetailsDict["gameID"] as! String)
             self.battingTeam = (gameDetailsDict["battingTeam"] as! String)
             self.inningsCounter = (gameDetailsDict["currentInnings"] as! Int)

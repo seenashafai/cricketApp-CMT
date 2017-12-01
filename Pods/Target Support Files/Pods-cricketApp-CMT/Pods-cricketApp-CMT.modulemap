@@ -1,0 +1,6 @@
+framework module Pods_cricketApp_CMT {
+  umbrella header "Pods-cricketApp-CMT-umbrella.h"
+
+  export *
+  module * { export * }
+}

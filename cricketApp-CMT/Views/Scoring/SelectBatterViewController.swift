@@ -119,11 +119,12 @@ class SelectBatterViewController: UIViewController, UIPickerViewDelegate, UIPick
     {
         if identifier == "pickerSegue"
         {
-            print("poo2")
             if battingTeam != homeTeam
             {
+                print("poo2")
                 if battingTeam != awayTeam
                 {
+                    print("poo3")
                     self.present(self.alerts.battingTeamAlert(), animated: true, completion: nil)
                     return false
                 }

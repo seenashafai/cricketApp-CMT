@@ -108,8 +108,8 @@ enum Out: Int, CustomStringConvertible {
     case handledBall = 6
     case hitWickets = 7
     case hitTwice = 8
-    case timeout = 9
-    static var count: Int { return Out.timeout.hashValue + 1}
+    case timeOut = 9
+    static var count: Int { return Out.timeOut.hashValue + 1}
     
     var description: String {
         get {
@@ -132,10 +132,9 @@ enum Out: Int, CustomStringConvertible {
                     return "hit wicket"
                 case .hitTwice:
                     return "hit twice"
-                case .timeout:
+                case .timeOut:
                     return "timed out"
                 
-            default: return ""
             }
         }
     }

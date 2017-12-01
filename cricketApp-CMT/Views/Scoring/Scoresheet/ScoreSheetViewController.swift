@@ -128,7 +128,7 @@ class ScoreSheetViewController: UIViewController {
     @IBAction func beginInningsButton(_ sender: Any) {
         
         if playerCount! < 11 {
-            self.present(self.alerts.playerCount(), animated: true, completion: nil)
+            playerCountAlert()
         }
         inningsOutlet.setTitle("Next innings", for: .normal)
         inningsCounter = inningsCounter + 1
@@ -267,5 +267,24 @@ class ScoreSheetViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated
 
+    }
+    
+    func playerCountAlert() -> UIAlertController {
+        let warningAlert = UIAlertController(title: "Error", message: "You have not added any players to the team sheet. Press continue to proceed without keeping record of player statistics", preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Continue", style: .destructive) {(action) in
+        }
+        let action2 = UIAlertAction(title: "Team sheet", style: .default) {(action) in
+            self.toTeamSheet()
+        }
+        warningAlert.addAction(action1)
+        warningAlert.addAction(action2)
+        present(warningAlert, animated: true, completion: nil)
+        return warningAlert
+        
+    }
+    
+    func toTeamSheet() {
+        tabBarController?.selectedIndex = 1
+        print("toTeamSheet")
     }
 }

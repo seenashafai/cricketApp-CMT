@@ -26,13 +26,13 @@ class ScoreBoardViewController: UIViewController {
     var handle: DatabaseHandle?
     
     //MARK: - IBOutlets
-    @IBOutlet weak var homeTeamLabel: UILabel!
     @IBOutlet weak var homeTeamName: UILabel!
     @IBOutlet weak var homeTeamRuns: UILabel!
+    @IBOutlet weak var homeTeamIndicator: UIButton!
     
-    @IBOutlet weak var awayTeamLabel: UILabel!
     @IBOutlet weak var awayTeamName: UILabel!
     @IBOutlet weak var awayTeamRuns: UILabel!
+    @IBOutlet weak var awayTeamIndicator: UIButton!
     
     @IBOutlet weak var currentBatsmanLabel: UILabel!
     @IBOutlet weak var currentBowlerLabel: UILabel!
@@ -42,6 +42,9 @@ class ScoreBoardViewController: UIViewController {
     {
         super.viewDidLoad()
 
+        homeTeamIndicator.isHidden = true
+        awayTeamIndicator.isHidden = true
+        
         //Firebase
         ref = Database.database().reference()
         
@@ -54,7 +57,6 @@ class ScoreBoardViewController: UIViewController {
             let setupDict = snapshot.value as? [String : AnyObject] ?? [:]
             self.gameID = (setupDict["gameID"] as! String)
             self.retrieveGameStats()
-            
         })
         
         //Hide back button on Navigation Bar
@@ -69,21 +71,17 @@ class ScoreBoardViewController: UIViewController {
     private func retrieveGameStats()
     {
         print("retrieving stats...")
-        let gameIDRef = ref?.child(gameID!)
+        let gameIDRef = ref?.child("games").child(gameID!)
         
         // Setup Firebase Game ID Listener
         handle = gameIDRef?.observe(DataEventType.value, with: { (snapshot) in
             
             //Retrieve Game ID
             let gameStatsDict = snapshot.value as? [String : AnyObject] ?? [:]
-            print(gameStatsDict)
             self.awayTeam = (gameStatsDict["awayTeam"] as! String)
             self.homeTeam = (gameStatsDict["homeTeam"] as! String)
             self.homeTeam = (gameStatsDict["homeTeam"] as! String)
 
-            
-            self.retrieveGameStats()
-            
         })
     }
 

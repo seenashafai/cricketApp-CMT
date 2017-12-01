@@ -25,6 +25,9 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var homeTeamTextField: UITextField!
     @IBOutlet weak var awayTeamTextField: UITextField!
     
+    @IBAction func gay(_ sender: Any) {
+        loadData()
+    }
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -37,6 +40,10 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
 
         // Handle the text field’s user input through delegate callbacks.
         gameIDTextField.delegate = self
+        homeTeamTextField.delegate = self
+        awayTeamTextField.delegate = self
+        inningsTextField.delegate = self
+        oversTextField.delegate = self
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
@@ -60,12 +67,17 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField)
     {
-        // Disable the Save button while editing.
+        gameIDTextField.autocorrectionType = .no
+        homeTeamTextField.autocorrectionType = .no
+        awayTeamTextField.autocorrectionType = .no
+
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         // Hide the keyboard.
+        homeTeamTextField.resignFirstResponder()
+        awayTeamTextField.resignFirstResponder()
         gameIDTextField.resignFirstResponder()
         return true
     }
@@ -103,5 +115,14 @@ class GameSetupViewController: UIViewController, UITextFieldDelegate {
             saveButton.isEnabled = true
             
         }
+    }
+    
+    private func loadData()
+    {
+        gameIDTextField.text = "TestMatch"
+        homeTeamTextField.text = "Eton"
+        awayTeamTextField.text = "Harrow"
+        inningsTextField.text = "2"
+        oversTextField.text = "20"
     }
 }

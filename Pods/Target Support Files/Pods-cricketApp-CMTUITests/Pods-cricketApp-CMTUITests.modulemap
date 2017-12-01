@@ -1,0 +1,6 @@
+framework module Pods_cricketApp_CMTUITests {
+  umbrella header "Pods-cricketApp-CMTUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

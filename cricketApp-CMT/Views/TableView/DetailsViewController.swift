@@ -30,6 +30,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad()
     {
+        print(playerName!)
         super.viewDidLoad()
   
         //Firebase Initialization
@@ -45,6 +46,7 @@ class DetailsViewController: UIViewController {
             //Load player metadata
             let metaDict = snapshot.value as? [String : AnyObject] ?? [:]
             
+            print(metaDict)
             self.playerBlockLabel.text = (metaDict["block"] as! String)
             self.playerNameLabel.text = (metaDict["playername"] as! String)
         })
@@ -55,6 +57,7 @@ class DetailsViewController: UIViewController {
             //Load player stats data
             let statsDict = snapshot.value as? [String: AnyObject] ?? [:]
             
+            print(statsDict)
             self.playerFacedLabel.text = (statsDict["faced"] as! String)
             self.playerRunsLabel.text = (statsDict["runs"] as! String)
             self.playerOutsMethod.text = (statsDict["outmethod"] as! String)

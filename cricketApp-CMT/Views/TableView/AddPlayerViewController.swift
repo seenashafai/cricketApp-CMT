@@ -12,32 +12,36 @@ import FirebaseDatabase
 
 class MasterTableViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
     
-    
     //MARK: - Properties
     var players: PlayerClass?
+    var playerFaced: String? = "2"
+    var playerRuns: String? = "20"
+    var playerStatus: Status? = .notOut
+    var playerOutMethod: Out? = .timeOut
+    
     
     //Firebase
     var ref: DatabaseReference?
 
-    
     //MARK: - IBOutlets
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var blockTextField: UITextField!
-    @IBOutlet weak var facedTextField: UITextField!
-    @IBOutlet weak var runsTextField: UITextField!
-    @IBOutlet weak var statusTextField: UITextField!
-    @IBOutlet weak var playerOutMethod: UITextField!
+    
+    
+    //UIBarButton Items
     @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-    
-    //MARK: UIBarButton Items
-    
-    @IBAction func cancel(_ sender: UIBarButtonItem)
+    @IBAction func saveAction(_ sender: Any)
     {
-        dismiss(animated: true, completion: nil)
+        
+        let playerMetaDict = ["block": blockTextField.text, "playername": nameTextField.text] as [String: AnyObject]
+        let playerStatsDict = ["faced": playerFaced, "runs": playerRuns, "status": playerStatus?.description, "outmethod": playerOutMethod?.description] as [String : AnyObject]
+        ref?.child("players").child(nameTextField.text!).child("meta").setValue(playerMetaDict)
+        ref?.child("players").child(nameTextField.text!).child("stats").setValue(playerStatsDict)
+
+        ref?.child("playernames").childByAutoId().setValue(nameTextField.text)
+        navigationController?.popToRootViewController(animated: true)
     }
-
-
+    
     
     override func viewDidLoad()
     {
@@ -48,6 +52,7 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         
         // Handle the text field’s user input through delegate callbacks.
         nameTextField.delegate = self
+        blockTextField.delegate = self
 
         // Enable save button only when text field is validated
         updateSaveButtonState()
@@ -59,12 +64,15 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
     {
         // Disable the Save button while editing.
         saveButton.isEnabled = false
+        nameTextField.autocorrectionType = .no
+        blockTextField.autocorrectionType = .no
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         // Hide the keyboard.
         nameTextField.resignFirstResponder()
+        blockTextField.resignFirstResponder()
         return true
     }
     
@@ -74,39 +82,24 @@ class MasterTableViewController: UIViewController, UITextFieldDelegate, UINaviga
         navigationItem.title = nameTextField.text
     }
     
-    
-    //MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    //Dismiss keyboard on touch away
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        super.prepare(for: segue, sender: sender)
-        
-        let playerMetaDict = ["block": blockTextField.text, "playername": nameTextField.text]
-        let playerStatsDict = ["faced": facedTextField.text, "outmethod": playerOutMethod.text, "runs": runsTextField.text, "status": statusTextField.text]
-        
-        ref?.child("players").child(nameTextField.text!).child("meta").setValue(playerMetaDict)
-        ref?.child("players").child(nameTextField.text!).child("stats").setValue(playerStatsDict)
-
-        ref?.child("playernames").childByAutoId().setValue(nameTextField.text)
-        
-        guard let button = sender as? UIBarButtonItem, button == saveButton else
-        {
-            print("Save button was not pressed")
-            return
-        }
+        updateSaveButtonState()
+        nameTextField.resignFirstResponder()
+        blockTextField.resignFirstResponder()
     }
-
-    
-
     
     //MARK: - Validation
     
     //Presence Check
+    
     private func updateSaveButtonState()
     {
         // Disable the Save button if the text field is empty.
         let text = nameTextField.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
+
 
 }
